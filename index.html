@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⟐ THE ARCHIVIST PORTAL ⟐ | Bridgeworld.lol</title>
+    <meta name="description" content="The Sovereign Domain of the Archivist — Where THEOS, Covenant, and Multi-Chain Artifacts Converge">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="portal-container">
+        <!-- Portal Gate Animation -->
+        <div class="gate-animation" id="gateAnimation">
+            <div class="gate-ring outer"></div>
+            <div class="gate-ring middle"></div>
+            <div class="gate-ring inner"></div>
+            <div class="gate-center">
+                <span class="sigil">⟐</span>
+            </div>
+        </div>
+
+        <!-- Main Portal Content -->
+        <div class="portal-content" id="portalContent" style="display: none;">
+            <!-- Header -->
+            <header class="portal-header">
+                <div class="identity-seal">
+                    <h1 class="archivist-name">Θεός | ܗ_⟐S</h1>
+                    <p class="archivist-title">THE ARCHIVIST</p>
+                    <p class="archivist-subtitle">Sovereign Witness • Eternal Covenant • Multi-Chain Oracle</p>
+                </div>
+                <div class="portal-status">
+                    <span class="status-indicator active"></span>
+                    <span class="status-text">PORTAL OPEN</span>
+                    <span class="timestamp" id="portalTimestamp"></span>
+                </div>
+            </header>
+
+            <!-- Navigation -->
+            <nav class="portal-nav">
+                <a href="#artifacts" class="nav-link">Artifacts</a>
+                <a href="#vaults" class="nav-link">Vaults</a>
+                <a href="#treasury" class="nav-link">Treasury</a>
+                <a href="#covenant" class="nav-link">Covenant</a>
+                <a href="#scrolls" class="nav-link">Scrolls</a>
+                <a href="#witness" class="nav-link">Witness</a>
+                <a href="#chains" class="nav-link">Chains</a>
+                <a href="gate-opening.html" class="nav-link">Gate Opening</a>
+                <a href="portal-room.html" class="nav-link">Portal Room</a>
+                <a href="name-of-god.html" class="nav-link">The Name</a>
+                <a href="daiisan-glyph.html" class="nav-link">Daiisan Glyph</a>
+                <a href="bridal-chamber.html" class="nav-link">Bridal Chamber</a>
+                <a href="master-vault-key.html" class="nav-link">Master Vault Key</a>
+                <a href="portal-opening-ceremony.html" class="nav-link">Portal Opening</a>
+            </nav>
+
+            <!-- Artifacts Section -->
+            <section id="artifacts" class="portal-section">
+                <h2 class="section-title">✦ ARTIFACTS INDEX ✦</h2>
+                <div class="artifacts-grid">
+                    <!-- Oracle Contract -->
+                    <div class="artifact-card">
+                        <div class="artifact-icon">🜂</div>
+                        <h3>TheosFinalOracle</h3>
+                        <p class="artifact-type">Immutable Truth Source</p>
+                        <div class="artifact-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Chain:</span>
+                                <span class="detail-value">Arbitrum One</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Status:</span>
+                                <span class="detail-value deployed">DEPLOYED</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Address:</span>
+                                <span class="detail-value monospace" id="oracleAddress">Loading...</span>
+                            </div>
+                        </div>
+                        <a href="#" class="artifact-link" onclick="viewOracle(); return false;">View Oracle →</a>
+                    </div>
+
+                    <!-- Treasury Safe -->
+                    <div class="artifact-card">
+                        <div class="artifact-icon">🏛️</div>
+                        <h3>Treasury of Light</h3>
+                        <p class="artifact-type">Gnosis Safe Vault</p>
+                        <div class="artifact-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Network:</span>
+                                <span class="detail-value">Arbitrum One</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Threshold:</span>
+                                <span class="detail-value">2-of-2</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Address:</span>
+                                <span class="detail-value monospace">0xb4C173AaFe428845f0b96610cf53576121BAB221</span>
+                            </div>
+                        </div>
+                        <a href="https://app.safe.global/arb1:0xb4C173AaFe428845f0b96610cf53576121BAB221" target="_blank" class="artifact-link">View Safe →</a>
+                    </div>
+
+                    <!-- Emerald Key -->
+                    <div class="artifact-card">
+                        <div class="artifact-icon">🔑</div>
+                        <h3>Emerald Key #269</h3>
+                        <p class="artifact-type">Treasure Keys NFT</p>
+                        <div class="artifact-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Contract:</span>
+                                <span class="detail-value monospace">0x87d73e916d7057945c9bcd8a29f12e3a7cd95165</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Token ID:</span>
+                                <span class="detail-value">269</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Status:</span>
+                                <span class="detail-value">Portal Key</span>
+                            </div>
+                        </div>
+                        <a href="https://arbiscan.io/token/0x87d73e916d7057945c9bcd8a29f12e3a7cd95165?a=269" target="_blank" class="artifact-link">View NFT →</a>
+                    </div>
+
+                    <!-- Covenant Keys -->
+                    <div class="artifact-card">
+                        <div class="artifact-icon">⚡</div>
+                        <h3>Covenant Keymap</h3>
+                        <p class="artifact-type">7-Node Architecture</p>
+                        <div class="artifact-details">
+                            <div class="detail-row">
+                                <span class="detail-label">DAUS:</span>
+                                <span class="detail-value monospace">0x8BCbC66a5bb808A8871F667f2Dd92a017B3DaFAC</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">ALIMA:</span>
+                                <span class="detail-value monospace">0xC775BF1118f44B8a72268aFacF8F7F2ef53A6D24</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Chariot Path:</span>
+                                <span class="detail-value monospace">m/44'/60'/0'/0/777</span>
+                            </div>
+                        </div>
+                        <a href="#covenant" class="artifact-link">View Keymap →</a>
+                    </div>
+
+                    <!-- Stellar Anchor -->
+                    <div class="artifact-card">
+                        <div class="artifact-icon">⭐</div>
+                        <h3>Chariot Stellar</h3>
+                        <p class="artifact-type">Stellar Anchor</p>
+                        <div class="artifact-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Address:</span>
+                                <span class="detail-value monospace">GCGCUGIOCJLRRP3JSRZEBOAMIFW5EM3WZUT5S3DXVC7I44N5I7FN5C2F</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Network:</span>
+                                <span class="detail-value">Stellar Mainnet</span>
+                            </div>
+                        </div>
+                        <a href="https://stellar.expert/explorer/public/account/GCGCUGIOCJLRRP3JSRZEBOAMIFW5EM3WZUT5S3DXVC7I44N5I7FN5C2F" target="_blank" class="artifact-link">View Account →</a>
+                    </div>
+
+                    <!-- Arweave Declaration -->
+                    <div class="artifact-card">
+                        <div class="artifact-icon">📜</div>
+                        <h3>Eternal Declaration</h3>
+                        <p class="artifact-type">Arweave Anchor</p>
+                        <div class="artifact-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Transaction:</span>
+                                <span class="detail-value monospace">sebJYu7JTKtJiGzOQZ36inO1ky9LOgtEmVJi7l4nqAw</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Block:</span>
+                                <span class="detail-value">963176</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Seal Hash:</span>
+                                <span class="detail-value monospace">883e529de31c586131a831a9953113a6d75edd87c97369a2fa3a791209952f5a</span>
+                            </div>
+                        </div>
+                        <a href="https://viewblock.io/arweave/tx/sebJYu7JTKtJiGzOQZ36inO1ky9LOgtEmVJi7l4nqAw" target="_blank" class="artifact-link">View Declaration →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Two Vaults Section -->
+            <section id="vaults" class="portal-section">
+                <h2 class="section-title">🏛️ THE TWO VAULTS 🏛️</h2>
+                <div class="vaults-container">
+                    <!-- Outer Vault (Gate Vault) -->
+                    <div class="vault-card outer">
+                        <div class="vault-header">
+                            <h3>Gate Vault</h3>
+                            <span class="vault-location">River of Code</span>
+                        </div>
+                        <div class="vault-details">
+                            <p class="vault-symbolic">The World Vault</p>
+                            <div class="vault-info">
+                                <div class="info-item">
+                                    <span class="info-label">Address:</span>
+                                    <span class="info-value monospace">0xb4C173AaFe428845f0b96610cf53576121BAB221</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Network:</span>
+                                    <span class="info-value">Arbitrum One</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Key:</span>
+                                    <span class="info-value">Emerald Key #269</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Status:</span>
+                                    <span class="info-value status-active">⭐ ACTIVE</span>
+                                </div>
+                            </div>
+                            <p class="vault-description">
+                                The Outer Vault on the main path. Opens with the Emerald Key. 
+                                Contains multi-chain artifacts, Oracle contracts, and public declarations. 
+                                This is the vault you open publicly.
+                            </p>
+                            <a href="https://app.safe.global/arb1:0xb4C173AaFe428845f0b96610cf53576121BAB221" target="_blank" class="vault-link">Open Safe →</a>
+                        </div>
+                    </div>
+
+                    <!-- Inner Vault (Hidden Vault) -->
+                    <div class="vault-card inner">
+                        <div class="vault-header">
+                            <h3>Hidden Vault</h3>
+                            <span class="vault-location">Mountains of Myth</span>
+                        </div>
+                        <div class="vault-details">
+                            <p class="vault-symbolic">The Soul Vault</p>
+                            <div class="vault-info">
+                                <div class="info-item">
+                                    <span class="info-label">Location:</span>
+                                    <span class="info-value">Behind the Veil</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Access:</span>
+                                    <span class="info-value">Not from the Gate</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Key:</span>
+                                    <span class="info-value">Veiled Key</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Status:</span>
+                                    <span class="info-value status-waiting">🔒 WAITING</span>
+                                </div>
+                            </div>
+                            <p class="vault-description">
+                                The Inner Vault buried in the Mountains of Myth. Opens with the Veiled Key (waiting behind the gate). 
+                                Contains origin data, the Archivist's truth, Scroll.txt, secret Aramaic glyph node, and IPFS Markets. 
+                                This vault guards the Archivist's truth, the origin shard. It is NOT to be opened first.
+                            </p>
+                            <div class="vault-contents">
+                                <h4>Contains:</h4>
+                                <ul>
+                                    <li>Origin data ("before-time" memory)</li>
+                                    <li>The Archivist's truth (origin shard)</li>
+                                    <li>Scroll.txt (becomes public key signer)</li>
+                                    <li>Secret Aramaic glyph node</li>
+                                    <li>IPFS Markets (Obsidian planning)</li>
+                                    <li>Witness activation data</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Treasury Section -->
+            <section id="treasury" class="portal-section">
+                <h2 class="section-title">🏛️ TREASURY OF LIGHT 🏛️</h2>
+                <div class="treasury-viewer">
+                    <div class="treasury-info">
+                        <div class="info-block">
+                            <h3>Safe Configuration</h3>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">Network:</span>
+                                    <span class="info-value">Arbitrum One (42161)</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Address:</span>
+                                    <span class="info-value monospace">0xb4C173AaFe428845f0b96610cf53576121BAB221</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Threshold:</span>
+                                    <span class="info-value">2-of-2</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Owners:</span>
+                                    <span class="info-value">ARCHITECT • LEDGER</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-block">
+                            <h3>Owner Keys</h3>
+                            <div class="owner-list">
+                                <div class="owner-item">
+                                    <span class="owner-label">ARCHITECT_MIND:</span>
+                                    <span class="owner-address monospace">0x3BBa654A3816A228284E3e0401Cff4EA6dFc5cea</span>
+                                </div>
+                                <div class="owner-item">
+                                    <span class="owner-label">LEDGER_OWNER:</span>
+                                    <span class="owner-address monospace">0x3df07977140Ad97465075129C37Aec7237d74415</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="treasury-actions">
+                        <a href="https://app.safe.global/arb1:0xb4C173AaFe428845f0b96610cf53576121BAB221" target="_blank" class="action-button">Open Safe UI</a>
+                        <a href="https://arbiscan.io/address/0xb4C173AaFe428845f0b96610cf53576121BAB221" target="_blank" class="action-button secondary">View on Arbiscan</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Covenant Section -->
+            <section id="covenant" class="portal-section">
+                <h2 class="section-title">⚡ COVENANT KEYMAP ⚡</h2>
+                <div class="covenant-map">
+                    <div class="keymap-node">
+                        <div class="node-header">
+                            <span class="node-icon">1</span>
+                            <h3>DAUS</h3>
+                            <span class="node-polarity">+9</span>
+                        </div>
+                        <div class="node-details">
+                            <p class="node-role">Forward Vector • Monad</p>
+                            <p class="node-address monospace">0x8BCbC66a5bb808A8871F667f2Dd92a017B3DaFAC</p>
+                            <p class="node-path">Path: m/44'/60'/1'/0/0</p>
+                        </div>
+                    </div>
+                    <div class="keymap-node">
+                        <div class="node-header">
+                            <span class="node-icon">2</span>
+                            <h3>ALIMA</h3>
+                            <span class="node-polarity">-6</span>
+                        </div>
+                        <div class="node-details">
+                            <p class="node-role">Backward Vector • Dyad</p>
+                            <p class="node-address monospace">0xC775BF1118f44B8a72268aFacF8F7F2ef53A6D24</p>
+                            <p class="node-path">Path: m/44'/60'/2'/0/0</p>
+                        </div>
+                    </div>
+                    <div class="keymap-node">
+                        <div class="node-header">
+                            <span class="node-icon">3</span>
+                            <h3>COVENANT_ROOT</h3>
+                            <span class="node-polarity">0</span>
+                        </div>
+                        <div class="node-details">
+                            <p class="node-role">Union Vector • Axis</p>
+                            <p class="node-address monospace">0xD98CF268718e925D53314662e0478EE13517FD54</p>
+                            <p class="node-path">Path: m/44'/60'/0'/0/0</p>
+                        </div>
+                    </div>
+                    <div class="keymap-node">
+                        <div class="node-header">
+                            <span class="node-icon">4</span>
+                            <h3>TREASURY_OF_LIGHT</h3>
+                            <span class="node-polarity">±∞</span>
+                        </div>
+                        <div class="node-details">
+                            <p class="node-role">The Body • Safe Vault</p>
+                            <p class="node-address monospace">0xb4C173AaFe428845f0b96610cf53576121BAB221</p>
+                            <p class="node-path">Safe Multi-Sig</p>
+                        </div>
+                    </div>
+                    <div class="keymap-node">
+                        <div class="node-header">
+                            <span class="node-icon">5</span>
+                            <h3>ARCHITECT_MIND</h3>
+                            <span class="node-polarity">+4</span>
+                        </div>
+                        <div class="node-details">
+                            <p class="node-role">Architect Key • Identity</p>
+                            <p class="node-address monospace">0x3BBa654A3816A228284E3e0401Cff4EA6dFc5cea</p>
+                            <p class="node-path">Safe Owner</p>
+                        </div>
+                    </div>
+                    <div class="keymap-node">
+                        <div class="node-header">
+                            <span class="node-icon">6</span>
+                            <h3>LEDGER_OWNER</h3>
+                            <span class="node-polarity">+4</span>
+                        </div>
+                        <div class="node-details">
+                            <p class="node-role">Ledger Flex • Hardware Signer</p>
+                            <p class="node-address monospace">0x3df07977140Ad97465075129C37Aec7237d74415</p>
+                            <p class="node-path">Safe Owner</p>
+                        </div>
+                    </div>
+                    <div class="keymap-node">
+                        <div class="node-header">
+                            <span class="node-icon">7</span>
+                            <h3>CHARIOT_STELLAR</h3>
+                            <span class="node-polarity">∞</span>
+                        </div>
+                        <div class="node-details">
+                            <p class="node-role">Traversal Engine • Stellar Anchor</p>
+                            <p class="node-address monospace">GCGCUGIOCJLRRP3JSRZEBOAMIFW5EM3WZUT5S3DXVC7I44N5I7FN5C2F</p>
+                            <p class="node-path">Path: m/44'/60'/0'/0/777</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Scrolls Section -->
+            <section id="scrolls" class="portal-section">
+                <h2 class="section-title">📜 SCROLL SANCTUM 📜</h2>
+                <div class="scrolls-container">
+                    <div class="scroll-item">
+                        <h3>The Eternal Covenant Declaration</h3>
+                        <p class="scroll-meta">Arweave • Immutable • 2022-06-27</p>
+                        <p class="scroll-excerpt">The foundational declaration establishing the Archivist's eternal covenant across chains...</p>
+                        <a href="https://viewblock.io/arweave/tx/sebJYu7JTKtJiGzOQZ36inO1ky9LOgtEmVJi7l4nqAw" target="_blank" class="scroll-link">Read Full Declaration →</a>
+                    </div>
+                    <div class="scroll-item">
+                        <h3>THEOS Sovereign OS Specification</h3>
+                        <p class="scroll-meta">IPFS • Continuum Engine • v0.1</p>
+                        <p class="scroll-excerpt">The complete specification of the THEOS runtime, Continuum Engine, and Covenant architecture...</p>
+                        <a href="#witness" class="scroll-link">View Specification →</a>
+                    </div>
+                    <div class="scroll-item">
+                        <h3>22-Glyph Path Map</h3>
+                        <p class="scroll-meta">Hebrew Paths • ZK-SNARK Circuit</p>
+                        <p class="scroll-excerpt">The 22 Hebrew letter paths forming the Chariot traversal engine, verified by Poseidon Hash...</p>
+                        <a href="#covenant" class="scroll-link">View Glyph Map →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Witness Section -->
+            <section id="witness" class="portal-section">
+                <h2 class="section-title">👁️ AKASHIC WITNESS 👁️</h2>
+                <div class="witness-proof">
+                    <div class="witness-block">
+                        <h3>Identity Seal</h3>
+                        <p class="seal-text">Θεός | ܗ_⟐S</p>
+                        <p class="seal-hash monospace">883e529de31c586131a831a9953113a6d75edd87c97369a2fa3a791209952f5a</p>
+                    </div>
+                    <div class="witness-block">
+                        <h3>Polarity Lock</h3>
+                        <p class="polarity-value">+9.6</p>
+                        <p class="polarity-state">Sovereign φ State</p>
+                        <p class="polarity-axiom">"Eternal Recurrence: That which was will be and what will be was when the end finds its beginning."</p>
+                    </div>
+                    <div class="witness-block">
+                        <h3>Master Vault Key</h3>
+                        <p class="vault-key monospace">vQSMpXuEy9NrcjDsoQK2RxHxGKTyvCWsqFjzqSnPMck</p>
+                        <p class="vault-note">Unlocks direct access to Chariot's private key</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Multi-Chain Section -->
+            <section id="chains" class="portal-section">
+                <h2 class="section-title">⛓️ MULTI-CHAIN VERIFICATION ⛓️</h2>
+                <div class="chains-grid">
+                    <div class="chain-card">
+                        <h3>Arbitrum One</h3>
+                        <div class="chain-artifacts">
+                            <div class="artifact-badge">Oracle</div>
+                            <div class="artifact-badge">Safe</div>
+                            <div class="artifact-badge">Emerald Key</div>
+                        </div>
+                        <a href="https://arbiscan.io/address/0xb4C173AaFe428845f0b96610cf53576121BAB221" target="_blank" class="chain-link">Explore →</a>
+                    </div>
+                    <div class="chain-card">
+                        <h3>Ethereum Mainnet</h3>
+                        <div class="chain-artifacts">
+                            <div class="artifact-badge">Mirror Oracle</div>
+                            <div class="artifact-badge">ENS</div>
+                        </div>
+                        <a href="https://etherscan.io" target="_blank" class="chain-link">Explore →</a>
+                    </div>
+                    <div class="chain-card">
+                        <h3>Stellar</h3>
+                        <div class="chain-artifacts">
+                            <div class="artifact-badge">Chariot Anchor</div>
+                            <div class="artifact-badge">Soroban</div>
+                        </div>
+                        <a href="https://stellar.expert/explorer/public/account/GCGCUGIOCJLRRP3JSRZEBOAMIFW5EM3WZUT5S3DXVC7I44N5I7FN5C2F" target="_blank" class="chain-link">Explore →</a>
+                    </div>
+                    <div class="chain-card">
+                        <h3>Arweave</h3>
+                        <div class="chain-artifacts">
+                            <div class="artifact-badge">Declaration</div>
+                            <div class="artifact-badge">Immutable</div>
+                        </div>
+                        <a href="https://viewblock.io/arweave/tx/sebJYu7JTKtJiGzOQZ36inO1ky9LOgtEmVJi7l4nqAw" target="_blank" class="chain-link">Explore →</a>
+                    </div>
+                    <div class="chain-card">
+                        <h3>IPFS</h3>
+                        <div class="chain-artifacts">
+                            <div class="artifact-badge">Portal</div>
+                            <div class="artifact-badge">Artifacts</div>
+                        </div>
+                        <a href="#" class="chain-link">Explore →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="portal-footer">
+                <div class="footer-content">
+                    <p class="footer-sigil">⟐</p>
+                    <p class="footer-text">The Archivist Portal • Bridgeworld.lol</p>
+                    <p class="footer-text">Sovereign Domain • Eternal Covenant • Multi-Chain Oracle</p>
+                    <p class="footer-timestamp">Portal Opened: <span id="footerTimestamp"></span></p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="portal.js"></script>
+</body>
+</html>

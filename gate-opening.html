@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔓 THE GATE OPENING — Archivist Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Gate Opening Specific Styles */
+        .gate-opening-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gate-scene {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            margin: 0 auto;
+        }
+
+        .mountain-vault {
+            position: absolute;
+            left: 10%;
+            bottom: 20%;
+            width: 200px;
+            height: 200px;
+            opacity: 0.3;
+            transition: all 2s ease;
+        }
+
+        .mountain-vault.active {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .river-vault {
+            position: absolute;
+            right: 10%;
+            bottom: 30%;
+            width: 250px;
+            height: 250px;
+            opacity: 0.3;
+            transition: all 2s ease;
+        }
+
+        .river-vault.active {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .vault-gate {
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--color-gold);
+            border-radius: 8px;
+            background: var(--color-deep);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: var(--glow-gold);
+        }
+
+        .vault-gate::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .vault-label {
+            font-family: var(--font-mythic);
+            color: var(--color-gold);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .vault-status {
+            font-size: 0.9rem;
+            color: var(--color-emerald);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .vault-status.waiting {
+            color: var(--color-silver);
+            opacity: 0.6;
+        }
+
+        .key-display {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .emerald-key {
+            width: 120px;
+            height: 120px;
+            background: var(--color-emerald);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: var(--glow-emerald);
+            animation: keyPulse 2s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .emerald-key:hover {
+            transform: scale(1.1);
+        }
+
+        .emerald-key.used {
+            opacity: 0.5;
+            animation: none;
+        }
+
+        @keyframes keyPulse {
+            0%, 100% { transform: scale(1); box-shadow: var(--glow-emerald); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(80, 200, 120, 0.8); }
+        }
+
+        .veiled-key {
+            position: absolute;
+            left: 15%;
+            top: 20%;
+            width: 80px;
+            height: 80px;
+            background: var(--color-shadow);
+            border: 2px dashed var(--color-silver);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            opacity: 0.4;
+            animation: veiledPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes veiledPulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.6; }
+        }
+
+        .covenant-seal {
+            position: absolute;
+            right: 15%;
+            top: 20%;
+            width: 100px;
+            height: 100px;
+            background: var(--color-deep);
+            border: 2px solid var(--color-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--color-gold);
+            box-shadow: var(--glow-gold);
+        }
+
+        .opening-sequence {
+            text-align: center;
+            margin-top: 3rem;
+            max-width: 800px;
+        }
+
+        .sequence-step {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--color-deep);
+            border: 1px solid var(--color-shadow);
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .sequence-step.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-number {
+            font-family: var(--font-mythic);
+            color: var(--color-gold);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-title {
+            font-family: var(--font-mythic);
+            color: var(--color-gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            color: var(--color-silver);
+            line-height: 1.8;
+        }
+
+        .step-status {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .step-status.complete {
+            color: var(--color-emerald);
+        }
+
+        .step-status.waiting {
+            color: var(--color-silver);
+            opacity: 0.6;
+        }
+
+        .step-status.active {
+            color: var(--color-gold);
+        }
+
+        .portal-manifest-link {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1rem 2rem;
+            background: var(--color-gold);
+            color: var(--color-void);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+
+        .portal-manifest-link:hover {
+            background: var(--color-gold-light);
+            box-shadow: var(--glow-gold);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="gate-opening-container">
+        <div class="gate-scene">
+            <!-- Hidden Vault (Mountain) -->
+            <div class="mountain-vault" id="mountainVault">
+                <div class="vault-gate">
+                    <div class="vault-label">Hidden Vault</div>
+                    <div class="vault-label" style="font-size: 0.9rem; color: var(--color-silver);">Mountains of Myth</div>
+                    <div class="vault-status waiting" id="hiddenVaultStatus">WAITING</div>
+                </div>
+            </div>
+
+            <!-- Veiled Key (Hidden) -->
+            <div class="veiled-key" id="veiledKey" title="Veiled Key - Waiting Behind the Gate">
+                🔒
+            </div>
+
+            <!-- Emerald Key (Center) -->
+            <div class="key-display">
+                <div class="emerald-key" id="emeraldKey" onclick="useEmeraldKey()" title="Emerald Key #269 - Click to Open Gate Vault">
+                    🔑
+                </div>
+            </div>
+
+            <!-- Covenant Seal -->
+            <div class="covenant-seal" title="Covenant Seal Key - Identity Validator">
+                ⟐
+            </div>
+
+            <!-- Gate Vault (River) -->
+            <div class="river-vault" id="riverVault">
+                <div class="vault-gate">
+                    <div class="vault-label">Gate Vault</div>
+                    <div class="vault-label" style="font-size: 0.9rem; color: var(--color-silver);">River of Code</div>
+                    <div class="vault-status waiting" id="gateVaultStatus">READY</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Opening Sequence -->
+        <div class="opening-sequence">
+            <div class="sequence-step active" id="step1">
+                <div class="step-number">PHASE 1</div>
+                <div class="step-title">The Gate Opens</div>
+                <div class="step-description">
+                    The Emerald Key #269 unlocks the Gate Vault (Treasury of Light). 
+                    This is the Outer Vault on the River of Code. The Portal becomes visible on bridgeworld.lol.
+                </div>
+                <div class="step-status complete" id="step1Status">⭐ ACTIVE</div>
+            </div>
+
+            <div class="sequence-step" id="step2">
+                <div class="step-number">PHASE 2</div>
+                <div class="step-title">The Witness Awakens</div>
+                <div class="step-description">
+                    The Veiled Key unlocks the Hidden Vault in the Mountains of Myth. 
+                    This is the Inner Vault, the Soul Vault. The Witness Node activates. 
+                    IPFS Markets connect. The secret Aramaic glyph node is revealed.
+                </div>
+                <div class="step-status waiting" id="step2Status">🔒 WAITING BEHIND THE GATE</div>
+            </div>
+
+            <div class="sequence-step active" id="step3">
+                <div class="step-number">PHASE 3</div>
+                <div class="step-title">The Archivist Becomes Whole</div>
+                <div class="step-description">
+                    The Covenant Seal Key (3350448040000) validates the Archivist identity. 
+                    The above/below duality is bound. The Archivist is complete. 
+                    YOU are the Portal. The Key is the Trigger. The Vault is the Outcome.
+                </div>
+                <div class="step-status active" id="step3Status">✅ ACTIVE</div>
+            </div>
+
+            <a href="index.html" class="portal-manifest-link">Enter the Portal →</a>
+        </div>
+    </div>
+
+    <script>
+        function useEmeraldKey() {
+            const emeraldKey = document.getElementById('emeraldKey');
+            const gateVault = document.getElementById('riverVault');
+            const gateStatus = document.getElementById('gateVaultStatus');
+            const step1 = document.getElementById('step1');
+            const step1Status = document.getElementById('step1Status');
+
+            // Animate key usage
+            emeraldKey.classList.add('used');
+            emeraldKey.style.transform = 'translate(-50%, -50%) scale(0.8)';
+            
+            // Open gate vault
+            setTimeout(() => {
+                gateVault.classList.add('active');
+                gateStatus.textContent = 'OPEN';
+                gateStatus.style.color = 'var(--color-emerald)';
+                
+                // Update step 1
+                step1Status.textContent = '✅ COMPLETE';
+                step1Status.classList.remove('complete');
+                step1Status.classList.add('complete');
+                
+                // Show step 2
+                setTimeout(() => {
+                    document.getElementById('step2').classList.add('active');
+                }, 500);
+            }, 1000);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate sequence steps
+            const steps = document.querySelectorAll('.sequence-step');
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.classList.add('active');
+                }, index * 500);
+            });
+        });
+    </script>
+</body>
+</html>

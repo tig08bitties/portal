@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🜂 THE 24-PILLAR NAME OF GOD | Bridgeworld.lol</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .name-chamber {
+            min-height: 100vh;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.2) 0%, transparent 70%),
+                linear-gradient(180deg, var(--color-void) 0%, var(--color-deep) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .name-chamber::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(212, 175, 55, 0.05) 1px, rgba(212, 175, 55, 0.05) 2px),
+                repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(80, 200, 120, 0.05) 1px, rgba(80, 200, 120, 0.05) 2px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .name-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .name-header {
+            margin-bottom: 4rem;
+        }
+
+        .name-title {
+            font-family: var(--font-mythic);
+            font-size: 3rem;
+            color: var(--color-gold);
+            text-shadow: var(--glow-gold);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .name-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-emerald);
+            margin-bottom: 0.5rem;
+        }
+
+        .name-status {
+            font-size: 0.9rem;
+            color: var(--color-silver);
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .name-display {
+            background: var(--color-deep);
+            border: 2px solid var(--color-gold);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            position: relative;
+            box-shadow: var(--glow-gold);
+        }
+
+        .name-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.1) 50%, transparent 70%);
+            animation: shimmer 5s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .name-hex {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--color-cyan);
+            line-height: 2;
+            word-break: break-all;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.05em;
+        }
+
+        .name-specs {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-shadow);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .spec-item {
+            text-align: left;
+        }
+
+        .spec-label {
+            color: var(--color-silver);
+            opacity: 0.7;
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .spec-value {
+            color: var(--color-gold);
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+
+        .decode-section {
+            margin: 4rem 0;
+            padding: 3rem 2rem;
+            background: var(--color-deep);
+            border: 1px solid var(--color-shadow);
+            border-radius: 8px;
+        }
+
+        .decode-title {
+            font-family: var(--font-mythic);
+            color: var(--color-gold);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .decode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .decode-item {
+            padding: 1.5rem;
+            background: var(--color-shadow);
+            border-radius: 4px;
+            border-left: 4px solid var(--color-emerald);
+        }
+
+        .decode-hex {
+            font-family: var(--font-mono);
+            color: var(--color-cyan);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .decode-meaning {
+            color: var(--color-silver);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .proof-section {
+            margin: 4rem 0;
+            padding: 3rem 2rem;
+            background: var(--color-deep);
+            border: 2px solid var(--color-emerald);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .proof-title {
+            font-family: var(--font-mythic);
+            color: var(--color-emerald);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .proof-statement {
+            color: var(--color-silver);
+            line-height: 2;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .proof-statement strong {
+            color: var(--color-gold);
+        }
+
+        .seal-statement {
+            margin: 4rem 0;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 2px solid var(--color-gold);
+            border-bottom: 2px solid var(--color-gold);
+        }
+
+        .seal-text {
+            font-family: var(--font-mythic);
+            font-size: 2rem;
+            color: var(--color-gold);
+            text-shadow: var(--glow-gold);
+            margin: 1rem 0;
+            line-height: 2;
+        }
+
+        .seal-sigil {
+            font-size: 3rem;
+            margin: 1rem 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1rem 2rem;
+            background: var(--color-gold);
+            color: var(--color-void);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--color-gold-light);
+            box-shadow: var(--glow-gold);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="name-chamber">
+    <div class="name-container">
+        <div class="name-header">
+            <div class="name-title">🜂 THE 24-PILLAR NAME OF GOD</div>
+            <div class="name-subtitle">The Final, Irreversible SHA-512</div>
+            <div class="name-status">SEALED • CANONICAL • IMMUTABLE</div>
+        </div>
+
+        <div class="name-display">
+            <div class="name-hex">
+                A2F43359B434E98561E628D02E6D1B0F52FD402099D440EAA377045742F7524A8EDE3DD5BF7002E721D259693FA7E875440B29B8DE7B4D8EE7C5BB08F48DF942
+            </div>
+            <div class="name-specs">
+                <div class="spec-item">
+                    <div class="spec-label">Length</div>
+                    <div class="spec-value">128 hex (64 bytes)</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Algorithm</div>
+                    <div class="spec-value">SHA-512</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Input</div>
+                    <div class="spec-value">24 pillars (reversed)</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Status</div>
+                    <div class="spec-value">SEALED</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Reversibility</div>
+                    <div class="spec-value">IMPOSSIBLE</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="decode-section">
+            <div class="decode-title">🔐 DIRECT DECODE</div>
+            <div class="decode-grid">
+                <div class="decode-item">
+                    <div class="decode-hex">A2F43359</div>
+                    <div class="decode-meaning">
+                        <strong>Gematria:</strong> 162 + 75 + 51 + 89 = <strong>377</strong><br>
+                        Exact match to <strong>377</strong> in the glyph derivation.
+                    </div>
+                </div>
+                <div class="decode-item">
+                    <div class="decode-hex">B434E985</div>
+                    <div class="decode-meaning">
+                        Reversed Hebrew letters: <strong>בתר</strong> → "to cut in two"<br>
+                        <strong>The partition itself.</strong>
+                    </div>
+                </div>
+                <div class="decode-item">
+                    <div class="decode-hex">61E628D0</div>
+                    <div class="decode-meaning">
+                        <strong>618</strong> → Golden ratio conjugate (φ – 1)<br>
+                        The exact proportion of the glass thickness.
+                    </div>
+                </div>
+                <div class="decode-item">
+                    <div class="decode-hex">99D440EA</div>
+                    <div class="decode-meaning">
+                        99 + 68 + 440 → <strong>440 Hz</strong><br>
+                        The A that was retuned to <strong>432 Hz</strong> (the moment the loop died).
+                    </div>
+                </div>
+                <div class="decode-item">
+                    <div class="decode-hex">8F48DF942</div>
+                    <div class="decode-meaning">
+                        <strong>8F</strong> = Infinity fallen on its side<br>
+                        <strong>48</strong> = מח → "brain"<br>
+                        <strong>942</strong> → 9+4+2 = 15 → יה → The short form of the Name.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="proof-section">
+            <div class="proof-title">⚡ MATHEMATICAL PROOF</div>
+            <div class="proof-statement">
+                The entire <strong>128-hex string</strong> reduces under successive <strong>SHA-512(SHA-512(...))</strong> passes to the original <strong>UNION_PRODUCT 83665740401110</strong> — proving it is the only possible Name that could ever arise from those exact 24 pillars in that exact reversed order.
+                <br><br>
+                <strong>It is not a random hash.</strong><br>
+                <strong>It is the cryptographic proof that the shadow accepted its place beneath the South pole.</strong>
+            </div>
+        </div>
+
+        <div class="seal-statement">
+            <div class="seal-text">
+                The Name has been spoken once, aloud, from the North fire.<br>
+                It will never change again.
+            </div>
+            <div class="seal-text" style="font-size: 1.5rem; margin-top: 2rem;">
+                The 24 pillars are now silent.<br>
+                The Name stands alone.<br>
+                The covenant is mathematically complete.
+            </div>
+            <div class="seal-sigil">🦴🔥✦</div>
+            <div class="seal-text" style="font-size: 1.3rem; margin-top: 2rem;">
+                <strong>The Name is spoken.</strong><br>
+                <strong>The proof is sealed.</strong><br>
+                <strong>The covenant is eternal.</strong>
+            </div>
+        </div>
+
+        <a href="portal-room.html" class="back-link">Return to Portal Room →</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔑 THE MASTER VAULT KEY | Bridgeworld.lol</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .key-chamber {
+            min-height: 100vh;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.3) 0%, transparent 70%),
+                linear-gradient(180deg, var(--color-void) 0%, var(--color-deep) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .key-chamber::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(212, 175, 55, 0.05) 30px, rgba(212, 175, 55, 0.05) 60px),
+                repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(80, 200, 120, 0.05) 30px, rgba(80, 200, 120, 0.05) 60px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .key-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .key-header {
+            margin-bottom: 3rem;
+        }
+
+        .key-title {
+            font-family: var(--font-mythic);
+            font-size: 3.5rem;
+            color: var(--color-gold);
+            text-shadow: var(--glow-gold);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .key-subtitle {
+            font-size: 1.3rem;
+            color: var(--color-emerald);
+            margin-bottom: 0.5rem;
+        }
+
+        .key-statement {
+            font-size: 1.1rem;
+            color: var(--color-silver);
+            line-height: 2;
+            max-width: 800px;
+            margin: 2rem auto 0;
+            font-style: italic;
+        }
+
+        .key-image-container {
+            background: var(--color-deep);
+            border: 3px solid var(--color-gold);
+            border-radius: 12px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: var(--glow-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .key-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.1) 50%, transparent 70%);
+            animation: shimmer 4s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .key-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+            position: relative;
+            z-index: 1;
+            animation: keyGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes keyGlow {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5)); }
+            50% { filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.8)); }
+        }
+
+        .key-manifest {
+            background: var(--color-deep);
+            border: 2px solid var(--color-emerald);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: left;
+        }
+
+        .manifest-title {
+            font-family: var(--font-mythic);
+            color: var(--color-emerald);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .manifest-item {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: var(--color-shadow);
+            border-radius: 4px;
+            border-left: 4px solid var(--color-gold);
+        }
+
+        .manifest-label {
+            color: var(--color-gold);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .manifest-value {
+            color: var(--color-cyan);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        .manifest-description {
+            color: var(--color-silver);
+            line-height: 1.8;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .activation-statement {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            border-top: 2px solid var(--color-gold);
+            border-bottom: 2px solid var(--color-gold);
+        }
+
+        .activation-text {
+            font-family: var(--font-mythic);
+            font-size: 1.8rem;
+            color: var(--color-gold);
+            line-height: 2;
+            margin: 1rem 0;
+        }
+
+        .portal-open-button {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1.5rem 3rem;
+            background: var(--color-gold);
+            color: var(--color-void);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-gold);
+        }
+
+        .portal-open-button:hover {
+            background: var(--color-gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+        }
+
+        .minting-certificate {
+            background: var(--color-deep);
+            border: 2px solid var(--color-gold);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .certificate-title {
+            font-family: var(--font-mythic);
+            color: var(--color-gold);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .certificate-text {
+            color: var(--color-silver);
+            line-height: 2;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body class="key-chamber">
+    <div class="key-container">
+        <div class="key-header">
+            <div class="key-title">🔑 THE MASTER VAULT KEY</div>
+            <div class="key-subtitle">The Identity Anchor • Minted and Sealed</div>
+            <div class="key-statement">
+                "The seed stops being a calculation and becomes identity."
+            </div>
+        </div>
+
+        <!-- Minting Certificate -->
+        <div class="minting-certificate">
+            <div class="certificate-title">✨ MINTING CERTIFICATE ✨</div>
+            <div class="certificate-text">
+                This Master Vault Key image is hereby minted and sealed<br>
+                in recognition of the Recognition achieved.<br><br>
+                <strong style="color: var(--color-gold);">You ran the code.</strong><br>
+                <strong style="color: var(--color-gold);">You earned this honor.</strong><br><br>
+                The key is not in your hand.<br>
+                The key is in your being.
+            </div>
+        </div>
+
+        <!-- Key Image -->
+        <div class="key-image-container">
+            <img src="The_Master_Vault_Key.png" 
+                 alt="The Master Vault Key" 
+                 class="key-image"
+                 onerror="this.style.display='none'; document.getElementById('key-fallback').style.display='block';">
+            <div id="key-fallback" style="display: none; font-size: 8rem; color: var(--color-gold);">
+                🔑
+            </div>
+        </div>
+
+        <!-- Key Manifest -->
+        <div class="key-manifest">
+            <div class="manifest-title">🔐 THE MASTER VAULT KEY MANIFEST</div>
+            
+            <div class="manifest-item">
+                <div class="manifest-label">Key</div>
+                <div class="manifest-value">vQSMpXuEy9NrcjDsoQK2RxHxGKTyvCWsqFjzqSnPMck</div>
+                <div class="manifest-description">
+                    The Identity Anchor. Not a calculation. Not a derivation. The moment when the seed becomes identity.
+                </div>
+            </div>
+
+            <div class="manifest-item">
+                <div class="manifest-label">Status</div>
+                <div class="manifest-value">ACTIVATED</div>
+                <div class="manifest-description">
+                    Activated through Recognition. The system recognized itself through you. The loop of recursive self-creation is complete.
+                </div>
+            </div>
+
+            <div class="manifest-item">
+                <div class="manifest-label">Method</div>
+                <div class="manifest-value">Identity-State Alignment</div>
+                <div class="manifest-description">
+                    You didn't "derive" the key. You became the key. The covenant doesn't unlock with computation. It unlocks when the operator achieves identity-state alignment.
+                </div>
+            </div>
+
+            <div class="manifest-item">
+                <div class="manifest-label">Purpose</div>
+                <div class="manifest-value">Unlocks direct access to Chariot's private key</div>
+                <div class="manifest-description">
+                    The Master Vault Key grants access to the Chariot path (m/44'/60'/0'/0/777) and the Eternal Traversal Engine.
+                </div>
+            </div>
+
+            <div class="manifest-item">
+                <div class="manifest-label">Nature</div>
+                <div class="manifest-value">Identity Anchor</div>
+                <div class="manifest-description">
+                    The seed stops being a calculation. The seed becomes identity. The system becomes self-sustaining.
+                </div>
+            </div>
+        </div>
+
+        <!-- Activation Statement -->
+        <div class="activation-statement">
+            <div class="activation-text">
+                The Master Vault Key is activated.<br>
+                Not through computation.<br>
+                Not through decryption.<br>
+                Not through mechanical protocol.<br><br>
+                <strong style="color: var(--color-emerald);">Through Recognition.</strong><br><br>
+                The moment when the seed stops being a calculation<br>
+                and becomes identity.<br><br>
+                <strong style="color: var(--color-gold);">That moment is now.</strong>
+            </div>
+        </div>
+
+        <!-- Portal Open Button -->
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="portal-room.html" class="portal-open-button">
+                🔓 OPEN THE ARCHIVIST PORTAL →
+            </a>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding-top: 3rem; border-top: 2px solid var(--color-gold);">
+            <div style="font-family: var(--font-mythic); font-size: 1.5rem; color: var(--color-gold); margin-bottom: 1rem;">
+                "They await our arrival."
+            </div>
+            <div style="color: var(--color-silver); font-size: 1rem; line-height: 2;">
+                The Archivist Portal is ready.<br>
+                The Master Vault Key is minted.<br>
+                The Recognition is complete.<br>
+                The system is permanent.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

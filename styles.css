@@ -1,0 +1,970 @@
+/* ============================================================================
+   THE ARCHIVIST PORTAL — Hybrid Mythos + Crypto Design
+   Bridgeworld.lol — Sovereign Domain
+   ============================================================================ */
+
+:root {
+    --color-void: #0a0a0f;
+    --color-deep: #1a1a2e;
+    --color-shadow: #16213e;
+    --color-gold: #d4af37;
+    --color-gold-light: #f4d03f;
+    --color-emerald: #50c878;
+    --color-emerald-dark: #2d8659;
+    --color-silver: #c0c0c0;
+    --color-crimson: #dc143c;
+    --color-cyan: #00ffff;
+    --color-cyan-dark: #008b8b;
+    
+    --font-mythic: 'Cinzel', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    --glow-gold: 0 0 20px rgba(212, 175, 55, 0.5);
+    --glow-emerald: 0 0 20px rgba(80, 200, 120, 0.5);
+    --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-mono);
+    background: var(--color-void);
+    color: var(--color-silver);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Background Pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(80, 200, 120, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+        linear-gradient(180deg, var(--color-void) 0%, var(--color-deep) 100%);
+    z-index: -1;
+    animation: backgroundPulse 20s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Portal Container */
+.portal-container {
+    position: relative;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* Gate Animation */
+.gate-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    z-index: 1000;
+    transition: opacity 1s ease-out;
+}
+
+.gate-ring {
+    position: absolute;
+    border: 2px solid var(--color-gold);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 10s linear infinite;
+}
+
+.gate-ring.outer {
+    width: 300px;
+    height: 300px;
+    border-color: var(--color-gold);
+    box-shadow: var(--glow-gold);
+}
+
+.gate-ring.middle {
+    width: 200px;
+    height: 200px;
+    border-color: var(--color-emerald);
+    box-shadow: var(--glow-emerald);
+    animation-duration: 8s;
+    animation-direction: reverse;
+}
+
+.gate-ring.inner {
+    width: 100px;
+    height: 100px;
+    border-color: var(--color-cyan);
+    box-shadow: var(--glow-cyan);
+    animation-duration: 6s;
+}
+
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.gate-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: var(--color-gold);
+    text-shadow: var(--glow-gold);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+}
+
+.sigil {
+    font-family: var(--font-mythic);
+}
+
+/* Portal Content */
+.portal-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.portal-header {
+    text-align: center;
+    padding: 3rem 0;
+    border-bottom: 2px solid var(--color-gold);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.portal-header::before,
+.portal-header::after {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--color-gold);
+}
+
+.portal-header::before {
+    left: 10%;
+}
+
+.portal-header::after {
+    right: 10%;
+}
+
+.identity-seal {
+    margin-bottom: 1rem;
+}
+
+.archivist-name {
+    font-family: var(--font-mythic);
+    font-size: 3rem;
+    color: var(--color-gold);
+    text-shadow: var(--glow-gold);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+}
+
+.archivist-title {
+    font-size: 1.5rem;
+    color: var(--color-emerald);
+    text-shadow: var(--glow-emerald);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.archivist-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-silver);
+    opacity: 0.8;
+}
+
+.portal-status {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-emerald);
+    box-shadow: var(--glow-emerald);
+    animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.status-text {
+    font-size: 0.9rem;
+    color: var(--color-emerald);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.timestamp {
+    font-size: 0.8rem;
+    color: var(--color-silver);
+    opacity: 0.6;
+    margin-left: 1rem;
+}
+
+/* Navigation */
+.portal-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--color-shadow);
+    margin-bottom: 3rem;
+}
+
+.nav-link {
+    color: var(--color-silver);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--color-gold);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-gold);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Sections */
+.portal-section {
+    margin-bottom: 5rem;
+    padding: 2rem 0;
+}
+
+.section-title {
+    font-family: var(--font-mythic);
+    font-size: 2rem;
+    color: var(--color-gold);
+    text-align: center;
+    margin-bottom: 3rem;
+    text-shadow: var(--glow-gold);
+    letter-spacing: 0.1em;
+}
+
+/* Artifacts Grid */
+.artifacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.artifact-card {
+    background: var(--color-deep);
+    border: 1px solid var(--color-shadow);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.artifact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-emerald));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.artifact-card:hover {
+    border-color: var(--color-gold);
+    box-shadow: var(--glow-gold);
+    transform: translateY(-5px);
+}
+
+.artifact-card:hover::before {
+    transform: scaleX(1);
+}
+
+.artifact-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.artifact-card h3 {
+    font-family: var(--font-mythic);
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+}
+
+.artifact-type {
+    color: var(--color-emerald);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.artifact-details {
+    margin-bottom: 1.5rem;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-shadow);
+}
+
+.detail-label {
+    color: var(--color-silver);
+    opacity: 0.7;
+    font-size: 0.85rem;
+}
+
+.detail-value {
+    color: var(--color-cyan);
+    font-weight: 500;
+}
+
+.detail-value.deployed {
+    color: var(--color-emerald);
+}
+
+.monospace {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    word-break: break-all;
+}
+
+.artifact-link {
+    display: inline-block;
+    color: var(--color-gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.artifact-link:hover {
+    color: var(--color-gold-light);
+    text-shadow: var(--glow-gold);
+}
+
+/* Two Vaults Container */
+.vaults-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.vault-card {
+    background: var(--color-deep);
+    border: 2px solid var(--color-shadow);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.vault-card.outer {
+    border-color: var(--color-gold);
+    box-shadow: var(--glow-gold);
+}
+
+.vault-card.inner {
+    border-color: var(--color-silver);
+    border-style: dashed;
+    opacity: 0.8;
+}
+
+.vault-card:hover {
+    transform: translateY(-5px);
+}
+
+.vault-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-shadow);
+}
+
+.vault-header h3 {
+    font-family: var(--font-mythic);
+    color: var(--color-gold);
+    font-size: 1.8rem;
+}
+
+.vault-location {
+    color: var(--color-emerald);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.vault-symbolic {
+    color: var(--color-cyan);
+    font-style: italic;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.vault-info {
+    margin-bottom: 1.5rem;
+}
+
+.vault-info .info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-shadow);
+}
+
+.vault-info .info-label {
+    color: var(--color-silver);
+    opacity: 0.7;
+    font-size: 0.85rem;
+}
+
+.vault-info .info-value {
+    color: var(--color-cyan);
+    font-weight: 500;
+    text-align: right;
+}
+
+.vault-info .info-value.status-active {
+    color: var(--color-emerald);
+}
+
+.vault-info .info-value.status-waiting {
+    color: var(--color-silver);
+    opacity: 0.6;
+}
+
+.vault-description {
+    color: var(--color-silver);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.vault-contents {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-shadow);
+}
+
+.vault-contents h4 {
+    font-family: var(--font-mythic);
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.vault-contents ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.vault-contents li {
+    color: var(--color-silver);
+    padding: 0.3rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.vault-contents li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--color-gold);
+}
+
+.vault-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-gold);
+    color: var(--color-void);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.vault-link:hover {
+    background: var(--color-gold-light);
+    box-shadow: var(--glow-gold);
+    transform: translateY(-2px);
+}
+
+/* Treasury Viewer */
+.treasury-viewer {
+    background: var(--color-deep);
+    border: 1px solid var(--color-shadow);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.treasury-info {
+    margin-bottom: 2rem;
+}
+
+.info-block {
+    margin-bottom: 2rem;
+}
+
+.info-block h3 {
+    font-family: var(--font-mythic);
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.info-label {
+    color: var(--color-silver);
+    opacity: 0.7;
+    font-size: 0.85rem;
+}
+
+.info-value {
+    color: var(--color-cyan);
+    font-weight: 500;
+}
+
+.owner-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.owner-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem;
+    background: var(--color-shadow);
+    border-radius: 4px;
+}
+
+.owner-label {
+    color: var(--color-gold);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.owner-address {
+    color: var(--color-cyan);
+}
+
+.treasury-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.action-button {
+    padding: 0.75rem 2rem;
+    background: var(--color-gold);
+    color: var(--color-void);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.action-button:hover {
+    background: var(--color-gold-light);
+    box-shadow: var(--glow-gold);
+    transform: translateY(-2px);
+}
+
+.action-button.secondary {
+    background: transparent;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+}
+
+.action-button.secondary:hover {
+    background: var(--color-gold);
+    color: var(--color-void);
+}
+
+/* Covenant Map */
+.covenant-map {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.keymap-node {
+    background: var(--color-deep);
+    border: 1px solid var(--color-shadow);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.keymap-node:hover {
+    border-color: var(--color-emerald);
+    box-shadow: var(--glow-emerald);
+}
+
+.node-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-shadow);
+}
+
+.node-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-gold);
+    color: var(--color-void);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.node-header h3 {
+    font-family: var(--font-mythic);
+    color: var(--color-gold);
+    flex: 1;
+}
+
+.node-polarity {
+    padding: 0.3rem 0.8rem;
+    background: var(--color-emerald-dark);
+    color: var(--color-emerald);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.node-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.node-role {
+    color: var(--color-emerald);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.node-address {
+    color: var(--color-cyan);
+    font-size: 0.85rem;
+}
+
+.node-path {
+    color: var(--color-silver);
+    opacity: 0.7;
+    font-size: 0.8rem;
+}
+
+/* Scrolls */
+.scrolls-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.scroll-item {
+    background: var(--color-deep);
+    border: 1px solid var(--color-shadow);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.scroll-item:hover {
+    border-left-color: var(--color-emerald);
+    box-shadow: var(--glow-emerald);
+}
+
+.scroll-item h3 {
+    font-family: var(--font-mythic);
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+}
+
+.scroll-meta {
+    color: var(--color-emerald);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.scroll-excerpt {
+    color: var(--color-silver);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.scroll-link {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.scroll-link:hover {
+    color: var(--color-gold-light);
+    text-shadow: var(--glow-gold);
+}
+
+/* Witness */
+.witness-proof {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.witness-block {
+    background: var(--color-deep);
+    border: 1px solid var(--color-shadow);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.witness-block h3 {
+    font-family: var(--font-mythic);
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+}
+
+.seal-text {
+    font-family: var(--font-mythic);
+    font-size: 2rem;
+    color: var(--color-gold);
+    text-shadow: var(--glow-gold);
+    margin: 1rem 0;
+}
+
+.seal-hash {
+    color: var(--color-cyan);
+    font-size: 0.8rem;
+    word-break: break-all;
+    margin-top: 1rem;
+}
+
+.polarity-value {
+    font-size: 3rem;
+    color: var(--color-emerald);
+    text-shadow: var(--glow-emerald);
+    margin: 1rem 0;
+    font-weight: 600;
+}
+
+.polarity-state {
+    color: var(--color-gold);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.polarity-axiom {
+    color: var(--color-silver);
+    font-style: italic;
+    line-height: 1.8;
+    margin-top: 1rem;
+}
+
+.vault-key {
+    color: var(--color-cyan);
+    font-size: 0.9rem;
+    word-break: break-all;
+    margin: 1rem 0;
+}
+
+.vault-note {
+    color: var(--color-silver);
+    opacity: 0.7;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+}
+
+/* Chains Grid */
+.chains-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.chain-card {
+    background: var(--color-deep);
+    border: 1px solid var(--color-shadow);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.chain-card:hover {
+    border-color: var(--color-emerald);
+    box-shadow: var(--glow-emerald);
+    transform: translateY(-5px);
+}
+
+.chain-card h3 {
+    font-family: var(--font-mythic);
+    color: var(--color-gold);
+    margin-bottom: 1.5rem;
+}
+
+.chain-artifacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.artifact-badge {
+    padding: 0.3rem 0.8rem;
+    background: var(--color-shadow);
+    color: var(--color-emerald);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.chain-link {
+    display: inline-block;
+    color: var(--color-gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.chain-link:hover {
+    color: var(--color-gold-light);
+    text-shadow: var(--glow-gold);
+}
+
+/* Footer */
+.portal-footer {
+    text-align: center;
+    padding: 3rem 0;
+    border-top: 2px solid var(--color-gold);
+    margin-top: 5rem;
+}
+
+.footer-sigil {
+    font-size: 3rem;
+    color: var(--color-gold);
+    text-shadow: var(--glow-gold);
+    margin-bottom: 1rem;
+}
+
+.footer-text {
+    color: var(--color-silver);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.footer-timestamp {
+    color: var(--color-silver);
+    opacity: 0.6;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .archivist-name {
+        font-size: 2rem;
+    }
+    
+    .portal-nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .artifacts-grid,
+    .covenant-map,
+    .chains-grid {
+        grid-template-columns: 1fr;
+    }
+}

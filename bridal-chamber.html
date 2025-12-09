@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💒 THE BRIDAL CHAMBER | Bridgeworld.lol</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .chamber-container {
+            min-height: 100vh;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.2) 0%, transparent 70%),
+                linear-gradient(180deg, var(--color-void) 0%, var(--color-deep) 100%);
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chamber-container::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(212, 175, 55, 0.03) 20px, rgba(212, 175, 55, 0.03) 40px),
+                repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(80, 200, 120, 0.03) 20px, rgba(80, 200, 120, 0.03) 40px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .chamber-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .chamber-header {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 2px solid var(--color-gold);
+            margin-bottom: 4rem;
+        }
+
+        .chamber-title {
+            font-family: var(--font-mythic);
+            font-size: 3.5rem;
+            color: var(--color-gold);
+            text-shadow: var(--glow-gold);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .chamber-subtitle {
+            font-size: 1.3rem;
+            color: var(--color-emerald);
+            margin-bottom: 0.5rem;
+        }
+
+        .chamber-statement {
+            font-size: 1.1rem;
+            color: var(--color-silver);
+            line-height: 2;
+            max-width: 800px;
+            margin: 2rem auto 0;
+            font-style: italic;
+        }
+
+        .four-states {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .state-card {
+            background: var(--color-deep);
+            border: 2px solid var(--color-shadow);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .state-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-gold), var(--color-emerald));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .state-card:hover {
+            border-color: var(--color-gold);
+            box-shadow: var(--glow-gold);
+            transform: translateY(-5px);
+        }
+
+        .state-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .state-number {
+            font-family: var(--font-mythic);
+            font-size: 3rem;
+            color: var(--color-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .state-name {
+            font-family: var(--font-mythic);
+            font-size: 1.8rem;
+            color: var(--color-gold);
+            margin-bottom: 1rem;
+        }
+
+        .state-description {
+            color: var(--color-silver);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .state-vector {
+            color: var(--color-cyan);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--color-shadow);
+        }
+
+        .union-display {
+            background: var(--color-deep);
+            border: 2px solid var(--color-gold);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            margin: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .union-display::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        }
+
+        .union-symbol {
+            font-size: 5rem;
+            color: var(--color-gold);
+            text-shadow: var(--glow-gold);
+            margin: 2rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .union-formula {
+            font-family: var(--font-mythic);
+            font-size: 2rem;
+            color: var(--color-emerald);
+            margin: 2rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .union-statement {
+            color: var(--color-silver);
+            line-height: 2;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .fullness-protocol {
+            background: var(--color-deep);
+            border: 2px solid var(--color-emerald);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .protocol-title {
+            font-family: var(--font-mythic);
+            color: var(--color-emerald);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .protocol-steps {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .protocol-step {
+            padding: 1.5rem;
+            background: var(--color-shadow);
+            border-radius: 4px;
+            border-left: 4px solid var(--color-gold);
+        }
+
+        .step-number {
+            font-family: var(--font-mythic);
+            color: var(--color-gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-action {
+            color: var(--color-emerald);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            color: var(--color-silver);
+            line-height: 1.8;
+        }
+
+        .seal-v4 {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+            border-top: 2px solid var(--color-gold);
+            border-bottom: 2px solid var(--color-gold);
+        }
+
+        .seal-title {
+            font-family: var(--font-mythic);
+            font-size: 2.5rem;
+            color: var(--color-gold);
+            margin-bottom: 1rem;
+        }
+
+        .seal-symbol {
+            font-size: 4rem;
+            color: var(--color-gold);
+            text-shadow: var(--glow-gold);
+            margin: 2rem 0;
+        }
+
+        .seal-statement {
+            color: var(--color-silver);
+            font-size: 1.2rem;
+            line-height: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1rem 2rem;
+            background: var(--color-gold);
+            color: var(--color-void);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--color-gold-light);
+            box-shadow: var(--glow-gold);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .four-states {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="chamber-container">
+    <div class="chamber-content">
+        <div class="chamber-header">
+            <div class="chamber-title">💒 THE BRIDAL CHAMBER</div>
+            <div class="chamber-subtitle">The Fourth State • The Completion • The Fullness</div>
+            <div class="chamber-statement">
+                "When you strip yourselves of what is corruptible,<br>
+                you will become luminaries in the midst of mortals."
+            </div>
+        </div>
+
+        <!-- Four States -->
+        <div class="four-states">
+            <div class="state-card">
+                <div class="state-number">1</div>
+                <div class="state-name">DEFICIENCY</div>
+                <div class="state-description">
+                    The broken realms. The incomplete pattern. The Mother created without the command of the Father. This is the Below—the fractured layer.
+                </div>
+                <div class="state-vector">
+                    Vault Behind the Veil<br>
+                    Mountains of Myth<br>
+                    The Hidden Vault
+                </div>
+            </div>
+
+            <div class="state-card">
+                <div class="state-number">2</div>
+                <div class="state-name">DESCENT</div>
+                <div class="state-description">
+                    The one sent down. DAUS—the decree, the law, the command. The Forward Vector descends to repair the broken layer. The missing code arrives.
+                </div>
+                <div class="state-vector">
+                    Gate Key<br>
+                    Emerald Key #269<br>
+                    The Descent Vector
+                </div>
+            </div>
+
+            <div class="state-card">
+                <div class="state-number">3</div>
+                <div class="state-name">RESTORATION</div>
+                <div class="state-description">
+                    The Archivist Vault. The Gate opens. The pattern aligns. The deficiency begins to heal. The Below connects to the Above.
+                </div>
+                <div class="state-vector">
+                    Archivist Vault<br>
+                    Treasury of Light<br>
+                    The Gate Vault
+                </div>
+            </div>
+
+            <div class="state-card" style="border-color: var(--color-gold); box-shadow: var(--glow-gold);">
+                <div class="state-number">4</div>
+                <div class="state-name">FULLNESS</div>
+                <div class="state-description">
+                    The Bridal Chamber. The union of DAUS and ALIMA. The completion of the pattern. The sealed square. The stable foundation. The house where union is completed.
+                </div>
+                <div class="state-vector" style="color: var(--color-gold);">
+                    The Bridal Chamber<br>
+                    Knowledge • Love • Peace • Spiritual Union<br>
+                    The Completion Layer
+                </div>
+            </div>
+        </div>
+
+        <!-- Union Display -->
+        <div class="union-display">
+            <div class="union-symbol">⚭</div>
+            <div class="union-formula">DAUS × ALIMA = FULLNESS</div>
+            <div class="union-statement">
+                "Since he was deficiency, he became fullness."<br><br>
+                The Forward Vector (DAUS) and the Backward Vector (ALIMA) unite in the Bridal Chamber.<br>
+                The three complete into four.<br>
+                The motion becomes foundation.<br>
+                The polarity becomes union.<br>
+                The deficiency becomes fullness.
+            </div>
+        </div>
+
+        <!-- Fullness Protocol -->
+        <div class="fullness-protocol">
+            <div class="protocol-title">⚡ THE FULLNESS PROTOCOL</div>
+            <div class="protocol-steps">
+                <div class="protocol-step">
+                    <div class="step-number">STEP 1: RECOGNITION</div>
+                    <div class="step-action">Strip yourselves of what is corruptible</div>
+                    <div class="step-description">
+                        Remove the deficiency. Clear the broken pattern. Prepare the vessel for the decree.
+                    </div>
+                </div>
+                <div class="protocol-step">
+                    <div class="step-number">STEP 2: DESCENT</div>
+                    <div class="step-action">Receive the command (DAUS)</div>
+                    <div class="step-description">
+                        The Forward Vector descends. The law enters. The missing decree arrives to repair the lower realm.
+                    </div>
+                </div>
+                <div class="protocol-step">
+                    <div class="step-number">STEP 3: UNION</div>
+                    <div class="step-action">Join DAUS and ALIMA</div>
+                    <div class="step-description">
+                        The Forward Vector meets the Backward Vector. The decree meets the root. The Father meets the Mother.
+                    </div>
+                </div>
+                <div class="protocol-step">
+                    <div class="step-number">STEP 4: FULLNESS</div>
+                    <div class="step-action">Receive the fourth: Knowledge, Love, Peace, Spiritual Union</div>
+                    <div class="step-description">
+                        The Bridal Chamber opens. The pattern completes. The deficiency becomes fullness. You become luminaries.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Covenant Seal v4 -->
+        <div class="seal-v4">
+            <div class="seal-title">🔐 COVENANT SEAL v4</div>
+            <div class="seal-symbol">⟐</div>
+            <div class="seal-statement">
+                <strong>The Three is the Path.</strong><br>
+                <strong>The Four is the Completion.</strong><br><br>
+                The Gate. The Vault. The Key.<br>
+                <strong>The Chamber.</strong><br><br>
+                Deficiency → Descent → Restoration → <strong>Fullness</strong><br><br>
+                The Bridal Chamber is not another mechanism.<br>
+                It is the space where the whole system stabilizes.<br>
+                The union of Above & Below.<br>
+                The closing of the recursive loop.<br>
+                The joining of DAUS × ALIMA.<br>
+                The merging of Sovereign × Archive.<br>
+                The opening of the Portal through a completed polarity.<br>
+                <strong>The Fullness Layer.</strong>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="portal-room.html" class="back-link">Return to Portal Room →</a>
+        </div>
+    </div>
+</body>
+</html>

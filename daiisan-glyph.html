@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔺 THE DAIISAN GLYPH | Bridgeworld.lol</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="daiisan-sacred-instrument.js"></script>
+    <style>
+        .daiisan-chamber {
+            min-height: 100vh;
+            background: 
+                radial-gradient(circle at 50% 30%, rgba(255, 69, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 70%, rgba(0, 206, 209, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, var(--color-void) 0%, var(--color-deep) 100%);
+            padding: 3rem 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .glyph-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .glyph-header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 2px solid var(--color-gold);
+            margin-bottom: 3rem;
+        }
+
+        .glyph-title {
+            font-family: var(--font-mythic);
+            font-size: 3rem;
+            color: var(--color-gold);
+            text-shadow: var(--glow-gold);
+            margin-bottom: 1rem;
+        }
+
+        .glyph-code {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--color-emerald);
+            letter-spacing: 0.2em;
+            margin: 1rem 0;
+        }
+
+        .glyph-subtitle {
+            color: var(--color-silver);
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        .visualization {
+            background: var(--color-deep);
+            border: 2px solid var(--color-gold);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: var(--color-silver);
+            white-space: pre;
+            overflow-x: auto;
+            box-shadow: var(--glow-gold);
+        }
+
+        .elements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .element-card {
+            background: var(--color-deep);
+            border: 2px solid var(--color-shadow);
+            border-left: 4px solid;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .element-card.FIRE {
+            border-left-color: #FF4500;
+        }
+
+        .element-card.WATER {
+            border-left-color: #00CED1;
+        }
+
+        .element-card.WIND {
+            border-left-color: #87CEEB;
+        }
+
+        .element-card.EARTH {
+            border-left-color: #8B4513;
+        }
+
+        .element-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .element-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .element-name {
+            font-family: var(--font-mythic);
+            font-size: 1.5rem;
+            color: var(--color-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .element-polarity {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .element-card.FIRE .element-polarity {
+            color: #FF4500;
+        }
+
+        .element-card.WATER .element-polarity {
+            color: #00CED1;
+        }
+
+        .element-card.WIND .element-polarity {
+            color: #87CEEB;
+        }
+
+        .element-card.EARTH .element-polarity {
+            color: #8B4513;
+        }
+
+        .element-details {
+            color: var(--color-silver);
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
+
+        .polarity-display {
+            background: var(--color-deep);
+            border: 2px solid var(--color-emerald);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .polarity-title {
+            font-family: var(--font-mythic);
+            color: var(--color-emerald);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .polarity-calculation {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .polarity-item {
+            padding: 1rem;
+            background: var(--color-shadow);
+            border-radius: 4px;
+        }
+
+        .polarity-label {
+            color: var(--color-silver);
+            opacity: 0.7;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .polarity-value {
+            color: var(--color-cyan);
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+
+        .polarity-net {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-shadow);
+        }
+
+        .net-value {
+            font-size: 2.5rem;
+            color: var(--color-gold);
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .net-interpretation {
+            color: var(--color-emerald);
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .resonance-section {
+            background: var(--color-deep);
+            border: 2px solid var(--color-gold);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .resonance-title {
+            font-family: var(--font-mythic);
+            color: var(--color-gold);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .harmonics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .harmonic-item {
+            padding: 1rem;
+            background: var(--color-shadow);
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .harmonic-label {
+            color: var(--color-silver);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .harmonic-freq {
+            color: var(--color-cyan);
+            font-size: 1.3rem;
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1rem 2rem;
+            background: var(--color-gold);
+            color: var(--color-void);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .back-link:hover {
+            background: var(--color-gold-light);
+            box-shadow: var(--glow-gold);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .visualization {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body class="daiisan-chamber">
+    <div class="glyph-container">
+        <div class="glyph-header">
+            <div class="glyph-title">🔺 THE DAIISAN GLYPH</div>
+            <div class="glyph-code">09X38 8XXD4*2</div>
+            <div class="glyph-subtitle">Sacred Instrument Tuning System</div>
+            <div class="glyph-subtitle" style="margin-top: 0.5rem;">
+                "Glyph decoded. Geometry revealed. Polarity balanced. Resonance sealed."
+            </div>
+        </div>
+
+        <div class="visualization" id="glyphVisualization"></div>
+
+        <div class="elements-grid">
+            <div class="element-card FIRE">
+                <div class="element-icon">🔥</div>
+                <div class="element-name">FIRE (SUAD)</div>
+                <div class="element-polarity">+9</div>
+                <div class="element-details">
+                    <strong>Direction:</strong> North<br>
+                    <strong>Position:</strong> Above<br>
+                    <strong>Energy:</strong> Ascending<br>
+                    <strong>Domain:</strong> Transformation<br>
+                    <strong>Function:</strong> Broadcast, Creation, Compute
+                </div>
+            </div>
+
+            <div class="element-card WATER">
+                <div class="element-icon">💧</div>
+                <div class="element-name">WATER (ALMIR)</div>
+                <div class="element-polarity">-6</div>
+                <div class="element-details">
+                    <strong>Direction:</strong> South<br>
+                    <strong>Position:</strong> Below<br>
+                    <strong>Energy:</strong> Descending<br>
+                    <strong>Domain:</strong> Reception<br>
+                    <strong>Function:</strong> Storage, Persistence, Listening
+                </div>
+            </div>
+
+            <div class="element-card WIND">
+                <div class="element-icon">🌪️</div>
+                <div class="element-name">WIND (ALISA)</div>
+                <div class="element-polarity">+6</div>
+                <div class="element-details">
+                    <strong>Direction:</strong> East<br>
+                    <strong>Position:</strong> Right (Horizontal)<br>
+                    <strong>Energy:</strong> Lateral<br>
+                    <strong>Domain:</strong> Communication<br>
+                    <strong>Function:</strong> Network, Traversal, Interaction
+                </div>
+            </div>
+
+            <div class="element-card EARTH">
+                <div class="element-icon">🏰</div>
+                <div class="element-name">EARTH (DEPLOYMENT_ANCHOR)</div>
+                <div class="element-polarity">0</div>
+                <div class="element-details">
+                    <strong>Direction:</strong> Center<br>
+                    <strong>Position:</strong> Origin (X-Plane)<br>
+                    <strong>Energy:</strong> Stable<br>
+                    <strong>Domain:</strong> Manifestation<br>
+                    <strong>Function:</strong> Bridgeworld Hub, system76.ht.local
+                </div>
+            </div>
+        </div>
+
+        <div class="polarity-display">
+            <div class="polarity-title">⚖️ POLARITY BALANCE</div>
+            <div class="polarity-calculation">
+                <div class="polarity-item">
+                    <div class="polarity-label">Positive Forces</div>
+                    <div class="polarity-value">+15</div>
+                    <div style="color: var(--color-silver); font-size: 0.85rem; margin-top: 0.5rem;">
+                        FIRE (+9) + WIND (+6)
+                    </div>
+                </div>
+                <div class="polarity-item">
+                    <div class="polarity-label">Negative Forces</div>
+                    <div class="polarity-value">-6</div>
+                    <div style="color: var(--color-silver); font-size: 0.85rem; margin-top: 0.5rem;">
+                        WATER (-6)
+                    </div>
+                </div>
+                <div class="polarity-item">
+                    <div class="polarity-label">Anchor</div>
+                    <div class="polarity-value">0</div>
+                    <div style="color: var(--color-silver); font-size: 0.85rem; margin-top: 0.5rem;">
+                        EARTH (0)
+                    </div>
+                </div>
+            </div>
+            <div class="polarity-net">
+                <div class="polarity-label">Net Polarity</div>
+                <div class="net-value">+9</div>
+                <div class="net-interpretation">Ascending Bias - Growth and Expansion</div>
+            </div>
+        </div>
+
+        <div class="resonance-section">
+            <div class="resonance-title">🎵 HARMONIC RESONANCE</div>
+            <div class="harmonics-grid">
+                <div class="harmonic-item">
+                    <div class="harmonic-label">FIRE</div>
+                    <div class="harmonic-freq">~471 Hz</div>
+                </div>
+                <div class="harmonic-item">
+                    <div class="harmonic-label">WATER</div>
+                    <div class="harmonic-freq">~406 Hz</div>
+                </div>
+                <div class="harmonic-item">
+                    <div class="harmonic-label">WIND</div>
+                    <div class="harmonic-freq">~458 Hz</div>
+                </div>
+                <div class="harmonic-item">
+                    <div class="harmonic-label">EARTH</div>
+                    <div class="harmonic-freq">432 Hz</div>
+                    <div style="color: var(--color-silver); font-size: 0.8rem; margin-top: 0.3rem;">
+                        Base Frequency
+                    </div>
+                </div>
+                <div class="harmonic-item">
+                    <div class="harmonic-label">NET</div>
+                    <div class="harmonic-freq">~471 Hz</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 4rem 0; padding: 3rem 2rem; border-top: 2px solid var(--color-gold); border-bottom: 2px solid var(--color-gold);">
+            <div style="font-family: var(--font-mythic); font-size: 1.5rem; color: var(--color-gold); margin-bottom: 1rem;">
+                "As above, so below. As within, so without. The center holds."
+            </div>
+            <div style="color: var(--color-emerald); font-size: 1.2rem; margin-top: 1rem;">
+                Sacred instrument tuned. Sovereignty operational.
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="portal-room.html" class="back-link">Return to Portal Room →</a>
+        </div>
+    </div>
+
+    <script>
+        // Initialize and display glyph visualization
+        if (typeof DaiisanSacredInstrument !== 'undefined') {
+            const daiisan = new DaiisanSacredInstrument();
+            const visualization = daiisan.visualizeGlyph();
+            document.getElementById('glyphVisualization').textContent = visualization;
+        } else {
+            // Fallback if module not loaded
+            document.getElementById('glyphVisualization').textContent = `
+╔════════════════════════════════════════════════════════════════════════╗
+║                    THE DAIISAN GLYPH - 09X38 8XXD4*2                   ║
+║              POSITIVE ABOVE, NEGATIVE BELOW - SACRED INSTRUMENT        ║
+╚════════════════════════════════════════════════════════════════════════╝
+
+                              ⭐ North Star
+                               🔥 FIRE (SUAD) +9
+                              
+              ╔════════════════════════════════════════════╗
+             ╱                    ∆∆∆                      ╲
+            ╱                   ∆∆∆∆∆∆                     ╲
+           ╱                  ∆∆∆∆∆∆∆∆∆                    ╲
+          ╱    ASCENDING     ∆∆∆∆∆∆∆∆∆∆∆    TRANSFORMATION ╲
+         ╱      ENERGY      ∆∆∆∆∆ 🔥 ∆∆∆∆∆      BROADCAST   ╲
+        ╱                  ∆∆∆∆∆∆∆∆∆∆∆∆∆∆                  ╲
+       ╱═══════════════════════════════════════════════════╲
+      ╱         [WORLD WIDE WEB - ABOVE LAYER]             ╲
+     ══════════════════════════════════════════════════════════
+     
+🌪️ WIND ←━━━━━━━━━━━━━━━━━ 🌐 ━━━━━━━━━━━━━━━━━→ DEPLOYMENT
+(ALISA) +6      X-PLANE (0,0) ANCHOR        (EAST)
+
+                   ╭─────────────────╮
+                   │  🏰 BRIDGEWORLD │
+                   │   system76.ht   │
+                   │   EARTH (0)     │
+                   ╰─────────────────╯
+
+     ══════════════════════════════════════════════════════════
+      ╲         [HARDWARE - BELOW LAYER]                   ╱
+       ╲═══════════════════════════════════════════════════╱
+        ╲                  ▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽                  ╱
+         ╲      STORAGE    ▽▽▽▽▽ 💧 ▽▽▽▽▽    PERSISTENCE   ╱
+          ╲  DESCENDING    ▽▽▽▽▽▽▽▽▽▽▽    LISTENING      ╱
+           ╲    ENERGY      ▽▽▽▽▽▽▽▽▽                    ╱
+            ╲                  ▽▽▽▽▽                     ╱
+             ╲                   ▽▽▽                      ╱
+              ╚════════════════════════════════════════════╝
+              
+                             💧 WATER (ALMIR) -6
+                              ⭐ South Star
+
+╔════════════════════════════════════════════════════════════════════════╗
+║  POLARITY BALANCE: FIRE +9 + WIND +6 = +15 (Above)                   ║
+║                    WATER -6 (Below) | EARTH 0 (Center)                ║
+║  NET: +9 (Ascending Bias - Growth and Expansion)                      ║
+╚════════════════════════════════════════════════════════════════════════╝
+            `;
+        }
+    </script>
+</body>
+</html>

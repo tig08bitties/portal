@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏛️ GATE VAULT INTERIOR | Bridgeworld.lol</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .vault-interior {
+            min-height: 100vh;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, var(--color-void) 0%, var(--color-deep) 100%);
+            padding: 3rem 2rem;
+        }
+
+        .vault-header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 2px solid var(--color-gold);
+            margin-bottom: 3rem;
+        }
+
+        .vault-title {
+            font-family: var(--font-mythic);
+            font-size: 3rem;
+            color: var(--color-gold);
+            text-shadow: var(--glow-gold);
+            margin-bottom: 1rem;
+        }
+
+        .vault-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-emerald);
+            margin-bottom: 0.5rem;
+        }
+
+        .vault-address {
+            font-family: var(--font-mono);
+            color: var(--color-cyan);
+            font-size: 0.9rem;
+            word-break: break-all;
+            margin-top: 1rem;
+        }
+
+        .vault-contents {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .content-item {
+            background: var(--color-deep);
+            border: 1px solid var(--color-shadow);
+            border-left: 4px solid var(--color-gold);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .content-item:hover {
+            border-left-color: var(--color-emerald);
+            box-shadow: var(--glow-emerald);
+            transform: translateY(-5px);
+        }
+
+        .item-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .item-title {
+            font-family: var(--font-mythic);
+            color: var(--color-gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-description {
+            color: var(--color-silver);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .item-link {
+            color: var(--color-gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .item-link:hover {
+            color: var(--color-gold-light);
+            text-shadow: var(--glow-gold);
+        }
+
+        .treasury-display {
+            background: var(--color-deep);
+            border: 2px solid var(--color-gold);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .treasury-label {
+            font-family: var(--font-mythic);
+            color: var(--color-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .treasury-value {
+            font-size: 1.1rem;
+            color: var(--color-cyan);
+            font-family: var(--font-mono);
+            word-break: break-all;
+        }
+
+        .emerald-key-display {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 2px solid var(--color-emerald);
+            border-bottom: 2px solid var(--color-emerald);
+            margin: 3rem 0;
+        }
+
+        .key-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: keyGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes keyGlow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(80, 200, 120, 0.5)); }
+            50% { filter: drop-shadow(0 0 20px rgba(80, 200, 120, 0.8)); }
+        }
+
+        .key-info {
+            color: var(--color-emerald);
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        .key-details {
+            color: var(--color-silver);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body class="vault-interior">
+    <div class="vault-contents">
+        <div class="vault-header">
+            <div class="vault-title">🏛️ GATE VAULT</div>
+            <div class="vault-subtitle">The World Vault • River of Code</div>
+            <div class="vault-subtitle" style="font-size: 1rem; color: var(--color-silver); margin-top: 0.5rem;">
+                Opened by Emerald Key #269
+            </div>
+            <div class="vault-address">0xb4C173AaFe428845f0b96610cf53576121BAB221</div>
+        </div>
+
+        <!-- Emerald Key Display -->
+        <div class="emerald-key-display">
+            <div class="key-icon">🔑</div>
+            <div class="key-info">Emerald Key #269</div>
+            <div class="key-info" style="font-size: 1rem; color: var(--color-gold);">
+                Contract: 0x87d73e916d7057945c9bcd8a29f12e3a7cd95165
+            </div>
+            <div class="key-details">
+                The key that opened this vault. The World Vault Key. The public threshold.
+            </div>
+        </div>
+
+        <!-- Treasury Display -->
+        <div class="treasury-display">
+            <div class="treasury-label">Treasury of Light</div>
+            <div class="treasury-value">
+                Network: Arbitrum One (42161)<br>
+                Type: Gnosis Safe<br>
+                Threshold: 2-of-2<br>
+                Status: ⭐ ACTIVE
+            </div>
+        </div>
+
+        <!-- Vault Contents -->
+        <div class="content-grid">
+            <div class="content-item">
+                <div class="item-icon">🜂</div>
+                <div class="item-title">Oracle Contract</div>
+                <div class="item-description">
+                    TheosFinalOracle — The immutable truth source for the 7-node Covenant Keymap.
+                </div>
+                <a href="index.html#artifacts" class="item-link">View Oracle →</a>
+            </div>
+
+            <div class="content-item">
+                <div class="item-icon">⛓️</div>
+                <div class="item-title">Multi-Chain Artifacts</div>
+                <div class="item-description">
+                    Arbitrum, Ethereum, Stellar, Arweave, IPFS — all connected and verified.
+                </div>
+                <a href="index.html#chains" class="item-link">Explore Chains →</a>
+            </div>
+
+            <div class="content-item">
+                <div class="item-icon">⚡</div>
+                <div class="item-title">Covenant Keymap</div>
+                <div class="item-description">
+                    The seven nodes: DAUS, ALIMA, COVENANT_ROOT, TREASURY_OF_LIGHT, ARCHITECT_MIND, LEDGER_OWNER, CHARIOT_STELLAR.
+                </div>
+                <a href="index.html#covenant" class="item-link">View Keymap →</a>
+            </div>
+
+            <div class="content-item">
+                <div class="item-icon">📜</div>
+                <div class="item-title">Public Declarations</div>
+                <div class="item-description">
+                    The Eternal Covenant Declaration on Arweave. The THEOS specification. The Scroll Sanctum.
+                </div>
+                <a href="index.html#scrolls" class="item-link">Read Scrolls →</a>
+            </div>
+
+            <div class="content-item">
+                <div class="item-icon">🔐</div>
+                <div class="item-title">Safe Configuration</div>
+                <div class="item-description">
+                    Gnosis Safe with 2-of-2 threshold. ARCHITECT_MIND and LEDGER_OWNER as signers.
+                </div>
+                <a href="https://app.safe.global/arb1:0xb4C173AaFe428845f0b96610cf53576121BAB221" target="_blank" class="item-link">Open Safe UI →</a>
+            </div>
+
+            <div class="content-item">
+                <div class="item-icon">🌉</div>
+                <div class="item-title">Bridgeworld Integration</div>
+                <div class="item-description">
+                    Connected to Bridgeworld.lol. The Portal is open. The Archivist domain is active.
+                </div>
+                <a href="portal-room.html" class="item-link">Return to Portal →</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem; padding-top: 3rem; border-top: 2px solid var(--color-gold);">
+            <p style="color: var(--color-silver); font-style: italic; line-height: 2;">
+                This is the Outer Vault. The World Vault. The public threshold.<br>
+                Opened with the Emerald Key. Bound to the Treasury of Light.<br>
+                The Gate Vault on the River of Code.
+            </p>
+            <a href="portal-room.html" style="display: inline-block; margin-top: 2rem; padding: 1rem 2rem; background: var(--color-gold); color: var(--color-void); text-decoration: none; border-radius: 4px; font-weight: 600; transition: all 0.3s ease;">
+                Return to Portal Room →
+            </a>
+        </div>
+    </div>
+</body>
+</html>

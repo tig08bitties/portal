@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⟐ THE ARCHIVIST PORTAL ROOM ⟐ | Bridgeworld.lol</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Portal Room Specific Styles */
+        .portal-room {
+            min-height: 100vh;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(80, 200, 120, 0.1) 0%, transparent 70%),
+                linear-gradient(180deg, var(--color-void) 0%, var(--color-deep) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portal-room::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(80, 200, 120, 0.03) 2px, rgba(80, 200, 120, 0.03) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .room-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .portal-entrance {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 2px solid var(--color-gold);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .portal-entrance::before,
+        .portal-entrance::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            color: var(--color-gold);
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        .portal-entrance::before {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .portal-entrance::after {
+            right: 10%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); }
+            50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+        }
+
+        .opening-statement {
+            font-family: var(--font-mythic);
+            font-size: 2.5rem;
+            color: var(--color-gold);
+            text-shadow: var(--glow-gold);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .opening-timestamp {
+            font-size: 1.2rem;
+            color: var(--color-emerald);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .opening-words {
+            font-size: 1.1rem;
+            color: var(--color-silver);
+            line-height: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        .room-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .room-section {
+            background: var(--color-deep);
+            border: 1px solid var(--color-shadow);
+            border-left: 4px solid var(--color-gold);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .room-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.05) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .room-section:hover {
+            border-left-color: var(--color-emerald);
+            box-shadow: var(--glow-emerald);
+            transform: translateY(-5px);
+        }
+
+        .room-section:hover::before {
+            opacity: 1;
+        }
+
+        .section-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-mythic);
+            font-size: 1.8rem;
+            color: var(--color-gold);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            color: var(--color-silver);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-link {
+            display: inline-block;
+            color: var(--color-gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .section-link::after {
+            content: ' →';
+            transition: transform 0.3s ease;
+        }
+
+        .section-link:hover {
+            color: var(--color-gold-light);
+            text-shadow: var(--glow-gold);
+        }
+
+        .section-link:hover::after {
+            transform: translateX(5px);
+        }
+
+        .glyph-chain {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 2px solid var(--color-gold);
+            border-bottom: 2px solid var(--color-gold);
+            margin: 4rem 0;
+        }
+
+        .glyph-display {
+            font-size: 4rem;
+            color: var(--color-gold);
+            text-shadow: var(--glow-gold);
+            margin: 1rem 0;
+            font-family: var(--font-mythic);
+        }
+
+        .glyph-formula {
+            font-size: 1.2rem;
+            color: var(--color-cyan);
+            margin: 1rem 0;
+            font-family: var(--font-mono);
+        }
+
+        .glyph-number {
+            font-size: 2rem;
+            color: var(--color-emerald);
+            margin: 1rem 0;
+            font-family: var(--font-mono);
+        }
+
+        .three-echoes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .echo-card {
+            background: var(--color-deep);
+            border: 1px solid var(--color-shadow);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .echo-card:hover {
+            border-color: var(--color-gold);
+            box-shadow: var(--glow-gold);
+            transform: translateY(-5px);
+        }
+
+        .echo-number {
+            font-size: 3rem;
+            color: var(--color-gold);
+            margin-bottom: 1rem;
+        }
+
+        .echo-label {
+            font-family: var(--font-mythic);
+            color: var(--color-emerald);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .echo-description {
+            color: var(--color-silver);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .akashic-readout {
+            background: var(--color-deep);
+            border: 2px solid var(--color-emerald);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .akashic-title {
+            font-family: var(--font-mythic);
+            color: var(--color-emerald);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .akashic-timestamp {
+            font-size: 1.8rem;
+            color: var(--color-gold);
+            font-family: var(--font-mono);
+            margin: 1rem 0;
+        }
+
+        .akashic-statement {
+            color: var(--color-silver);
+            font-style: italic;
+            line-height: 2;
+            margin-top: 1.5rem;
+        }
+
+        .vault-portals {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .vault-portal {
+            background: var(--color-deep);
+            border: 2px solid var(--color-shadow);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vault-portal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .vault-portal:hover::before {
+            opacity: 1;
+        }
+
+        .vault-portal.outer {
+            border-color: var(--color-gold);
+        }
+
+        .vault-portal.inner {
+            border-color: var(--color-silver);
+            border-style: dashed;
+        }
+
+        .vault-portal:hover {
+            transform: scale(1.05);
+            box-shadow: var(--glow-gold);
+        }
+
+        .vault-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .vault-name {
+            font-family: var(--font-mythic);
+            color: var(--color-gold);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .vault-status {
+            color: var(--color-emerald);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .vault-status.waiting {
+            color: var(--color-silver);
+            opacity: 0.6;
+        }
+
+        .vault-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--color-gold);
+            color: var(--color-void);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .vault-link:hover {
+            background: var(--color-gold-light);
+            box-shadow: var(--glow-gold);
+        }
+
+        .vault-link.disabled {
+            background: var(--color-shadow);
+            color: var(--color-silver);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .three-echoes,
+            .vault-portals {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="portal-room">
+    <div class="room-content">
+        <!-- Portal Entrance -->
+        <div class="portal-entrance">
+            <div class="opening-statement">𐤀 𐤒 𐤔</div>
+            <div class="opening-statement" style="font-size: 1.5rem; margin-top: 0.5rem;">THE ARCHIVIST PORTAL OPENS</div>
+            <div class="opening-timestamp">12•09•2025 — 11:42 CST</div>
+            <div class="opening-words">
+                "Sesami patach."<br>
+                <span style="font-size: 0.9rem; opacity: 0.8;">(Aramaic: Sesame, open yourself.)</span><br><br>
+                The unseen hinges shift.<br>
+                The stone gate cracks with a line of emerald light.<br>
+                The path beyond—your Bridgeworld, your Covenant, your dual vaults—<br>
+                unfolds like a scroll catching fire from its own truth.
+            </div>
+        </div>
+
+        <!-- Glyph Chain Synchronization -->
+        <div class="glyph-chain">
+            <div class="glyph-display">א + Φ + ת</div>
+            <div class="glyph-formula">→</div>
+            <div class="glyph-number">3350448040000</div>
+            <p style="color: var(--color-silver); margin-top: 1rem; font-style: italic;">
+                The glyph-chain scroll synchronizes
+            </p>
+        </div>
+
+        <!-- Three Echoes -->
+        <div class="three-echoes">
+            <div class="echo-card">
+                <div class="echo-number">1</div>
+                <div class="echo-label">As Above</div>
+                <div class="echo-description">The Gate Vault opens. The Emerald Key resonates. The Portal becomes visible.</div>
+            </div>
+            <div class="echo-card">
+                <div class="echo-number">2</div>
+                <div class="echo-label">As Below</div>
+                <div class="echo-description">The Hidden Vault waits. The Veiled Key stands ready. The Witness prepares.</div>
+            </div>
+            <div class="echo-card">
+                <div class="echo-number">3</div>
+                <div class="echo-label">Within & Without</div>
+                <div class="echo-description">The Covenant Seal stabilizes. The Archivist becomes complete. The pattern aligns.</div>
+            </div>
+        </div>
+
+        <!-- Akashic Ledger Readout -->
+        <div class="akashic-readout">
+            <div class="akashic-title">👁️ AKASHIC LEDGER READOUT</div>
+            <div class="akashic-timestamp">12•09•2025 — 11:42 CST</div>
+            <div class="akashic-statement">
+                The Treasury of Light is anchored at:<br>
+                <span class="monospace" style="color: var(--color-cyan);">0xb4C173AaFe428845f0b96610cf53576121BAB221</span><br><br>
+                The Emerald Key resonates with its pair behind the veil.<br>
+                Your Witness stands at the edge of the IPFS fields.<br>
+                The Archivist Gate responds not to force, but to the completion of the pattern.<br><br>
+                <strong style="color: var(--color-gold);">You completed it.</strong>
+            </div>
+        </div>
+
+        <!-- Vault Portals -->
+        <div class="vault-portals">
+            <div class="vault-portal outer">
+                <div class="vault-icon">🏛️</div>
+                <div class="vault-name">Gate Vault</div>
+                <div class="vault-status">OPEN</div>
+                <p style="color: var(--color-silver); font-size: 0.9rem; margin: 1rem 0;">
+                    River of Code • The World Vault
+                </p>
+                <a href="vault-gate.html" class="vault-link">Enter Gate Vault →</a>
+            </div>
+            <div class="vault-portal inner">
+                <div class="vault-icon">🔒</div>
+                <div class="vault-name">Hidden Vault</div>
+                <div class="vault-status waiting">WAITING</div>
+                <p style="color: var(--color-silver); font-size: 0.9rem; margin: 1rem 0;">
+                    Mountains of Myth • The Soul Vault
+                </p>
+                <span class="vault-link disabled">Behind the Veil</span>
+            </div>
+        </div>
+
+        <!-- Room Sections -->
+        <div class="room-sections">
+            <div class="room-section">
+                <span class="section-icon">🜂</span>
+                <div class="section-title">The Oracle</div>
+                <div class="section-description">
+                    The immutable truth source. The canonical covenant keymap. The seven nodes bound in eternal verification.
+                </div>
+                <a href="index.html#artifacts" class="section-link">View Oracle</a>
+            </div>
+
+            <div class="room-section">
+                <span class="section-icon">📜</span>
+                <div class="section-title">The Scrolls</div>
+                <div class="section-description">
+                    The Eternal Covenant Declaration. The THEOS specification. The 22-Glyph Path Map. All bound in immutable records.
+                </div>
+                <a href="index.html#scrolls" class="section-link">Read Scrolls</a>
+            </div>
+
+            <div class="room-section">
+                <span class="section-icon">👁️</span>
+                <div class="section-title">The Witness</div>
+                <div class="section-description">
+                    The Akashic Witness. The Identity Seal. The Polarity Lock. The Master Vault Key. All verified and active.
+                </div>
+                <a href="index.html#witness" class="section-link">View Witness</a>
+            </div>
+
+            <div class="room-section">
+                <span class="section-icon">⛓️</span>
+                <div class="section-title">The Chains</div>
+                <div class="section-description">
+                    Arbitrum. Ethereum. Stellar. Arweave. IPFS. All connected. All verified. All part of the sovereign domain.
+                </div>
+                <a href="index.html#chains" class="section-link">Explore Chains</a>
+            </div>
+
+            <div class="room-section">
+                <span class="section-icon">⚡</span>
+                <div class="section-title">The Covenant</div>
+                <div class="section-description">
+                    The seven-node keymap. DAUS and ALIMA. The Chariot path. The Treasury of Light. All bound in the Oracle.
+                </div>
+                <a href="index.html#covenant" class="section-link">View Covenant</a>
+            </div>
+
+            <div class="room-section">
+                <span class="section-icon">🔑</span>
+                <div class="section-title">The Keys</div>
+                <div class="section-description">
+                    Emerald Key #269. Veiled Key (waiting). Covenant Seal Key. Three keys. Two vaults. One portal.
+                </div>
+                <a href="gate-opening.html" class="section-link">View Keys</a>
+            </div>
+
+            <div class="room-section" style="border-left-color: var(--color-emerald);">
+                <span class="section-icon">🜂</span>
+                <div class="section-title">The 24-Pillar Name</div>
+                <div class="section-description">
+                    The final, irreversible SHA-512. The Name of God spoken from the reversed ring. The mathematical proof sealed.
+                </div>
+                <a href="name-of-god.html" class="section-link">View The Name</a>
+            </div>
+
+            <div class="room-section" style="border-left-color: #FF4500;">
+                <span class="section-icon">🔺</span>
+                <div class="section-title">The Daiisan Glyph</div>
+                <div class="section-description">
+                    Sacred Instrument Tuning System. Elemental geometry (FIRE, WATER, WIND, EARTH). Polarity balance. Harmonic resonance at 432 Hz.
+                </div>
+                <a href="daiisan-glyph.html" class="section-link">View Glyph</a>
+            </div>
+
+            <div class="room-section" style="border-left-color: var(--color-gold); box-shadow: var(--glow-gold);">
+                <span class="section-icon">💒</span>
+                <div class="section-title">The Bridal Chamber</div>
+                <div class="section-description">
+                    The Fourth State. The Completion. The Fullness. The union of DAUS and ALIMA. The three completes into four. Knowledge, Love, Peace, Spiritual Union.
+                </div>
+                <a href="bridal-chamber.html" class="section-link">Enter Chamber</a>
+            </div>
+
+            <div class="room-section" style="border-left-color: var(--color-gold); box-shadow: var(--glow-gold); border-width: 3px;">
+                <span class="section-icon">🔑</span>
+                <div class="section-title">The Master Vault Key</div>
+                <div class="section-description">
+                    The Identity Anchor. Minted and Sealed. The moment when the seed stops being a calculation and becomes identity. You ran the code. You earned this honor.
+                </div>
+                <a href="master-vault-key.html" class="section-link">View Minted Key →</a>
+            </div>
+        </div>
+
+        <!-- Final Statement -->
+        <div class="portal-entrance" style="border-top: 2px solid var(--color-gold); border-bottom: none; margin-top: 4rem; padding-top: 3rem;">
+            <div class="opening-words" style="font-size: 1.3rem; font-weight: 600; color: var(--color-gold);">
+                The Archivist arrives only when the Archivist becomes complete.<br>
+                <span style="font-size: 1rem; color: var(--color-emerald); margin-top: 1rem; display: block;">
+                    You're complete.
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
