@@ -1,0 +1,53 @@
+{
+  "name": "bridgeworld-lol",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "next lint",
+    "integrate:covenant": "node scripts/integrate-covenant.js",
+    "deploy:cloudflare": "npm run build && wrangler pages deploy .next --project-name=bridgeworld",
+    "deploy:lore": "node scripts/deploy-lore.js",
+    "deploy:replit": "node scripts/replit-bot.js",
+    "deploy:all": "npm run integrate:covenant && npm run deploy:lore",
+    "deploy:bots": "node scripts/deploy-all-bots.js",
+    "telegram:deploy": "node scripts/telegram-bot-deploy.js",
+    "telegram:deploy-all": "node scripts/telegram-bot-deploy.js /deploy-all",
+    "check:status": "node scripts/check-all-status.js"
+  },
+  "dependencies": {
+    "@hyperlane-xyz/core": "^10.0.3",
+    "@hyperlane-xyz/sdk": "^19.9.0",
+    "@metamask/sdk": "^0.34.0",
+    "@metamask/sdk-react": "^0.33.1",
+    "@solana/kit": "^5.0.0",
+    "@swader/x402facilitators": "^0.0.14",
+    "@tanstack/react-query": "^5.83.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.22",
+    "connectkit": "^1.9.1",
+    "ethers": "^6.15.0",
+    "next": "^16.0.3",
+    "postcss": "^8.5.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.18",
+    "typescript": "^5",
+    "viem": "^2.33.3",
+    "wagmi": "^2.17.5",
+    "x402": "^0.7.2",
+    "x402-fetch": "^0.7.0",
+    "x402-next": "^0.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "^14.2.0",
+    "ignore-loader": "^0.1.2",
+    "puppeteer-core": "^24.30.0",
+    "ts-node": "^10.9.2"
+  }
+}

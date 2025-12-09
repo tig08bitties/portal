@@ -1,0 +1,25 @@
+name = "bridgeworld-lol"
+compatibility_date = "2025-11-15"
+pages_build_output_dir = ".next"
+
+[env.production]
+name = "bridgeworld-lol"
+route = { pattern = "bridgeworld.lol/*", zone_name = "bridgeworld.lol" }
+
+[env.production.vars]
+NODE_ENV = "production"
+NEXT_PUBLIC_APP_URL = "https://bridgeworld.lol"
+
+# Zero Trust Configuration
+[env.production.zero_trust]
+team_name = "tig08bitties.cloudflareaccess.com"
+access_url = "https://tig08bitties.cloudflareaccess.com"
+
+# Custom domains
+[[env.production.routes]]
+pattern = "bridgeworld.lol"
+zone_name = "bridgeworld.lol"
+
+[[env.production.routes]]
+pattern = "*.bridgeworld.lol"
+zone_name = "bridgeworld.lol"

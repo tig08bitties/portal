@@ -1,0 +1,56 @@
+{
+  "oracle": {
+    "name": "Oracle Contract Access",
+    "application": "Oracle Dashboard",
+    "include": [
+      {
+        "type": "email",
+        "email": "tig08bitties@att.net"
+      }
+    ],
+    "require": [
+      {
+        "type": "email",
+        "email": {
+          "domain": "att.net"
+        }
+      }
+    ]
+  },
+  "monitoring": {
+    "name": "Monitoring Dashboard Access",
+    "application": "Monitoring Suite",
+    "include": [
+      {
+        "type": "email",
+        "email": "tig08bitties@att.net"
+      }
+    ],
+    "require": [
+      {
+        "type": "email",
+        "email": {
+          "domain": "att.net"
+        }
+      }
+    ]
+  },
+  "api": {
+    "name": "API Access",
+    "application": "Covenant API",
+    "include": [
+      {
+        "type": "email",
+        "email": "tig08bitties@att.net"
+      }
+    ],
+    "require": [
+      {
+        "type": "email",
+        "email": {
+          "domain": "att.net"
+        }
+      }
+    ]
+  }
+}

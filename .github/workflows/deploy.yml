@@ -1,0 +1,35 @@
+name: Deploy to Firebase Hosting
+
+# Triggers
+on:
+  push:
+    branches:
+      - main          # ← use "main" now, not "master"
+  pull_request:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4          # ← latest version
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'               # or 22
+          cache: 'npm'                     # speeds up installs
+
+      - name: Install Dependencies
+        run: npm ci                         # ← better than npm install
+
+      - name: Build Production
+        run: npm run build-prod             # ← make sure this script exists in package.json
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_THEOS_98CDD }}
+          channelId: live
+          projectId: theos-98cdd
