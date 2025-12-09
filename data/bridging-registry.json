@@ -1,0 +1,37 @@
+{
+  "erc20": [
+    {
+      "method": "hyperlane",
+      "name": "Smol",
+      "srcChainId": 42161,
+      "srcTokenAddress": "0xA4Bbac7eD5BdA8Ec71a1aF5ee84d4c5a737bD875",
+      "destChainId": 61166,
+      "destTokenAddress": "0xb73e4f558F7d4436d77a18f56e4EE9d01764c641",
+      "isNft": false,
+      "isCollateral": true,
+      "underlyingTokenAddress": "0x9E64D3b9e8eC387a9a58CED80b71Ed815f8D82B5"
+    },
+    {
+      "method": "hyperlane",
+      "name": "Magic",
+      "srcChainId": 42161,
+      "srcTokenAddress": "0x539bde0d7dbd336b79148aa742883198bbf60342",
+      "destChainId": 61166,
+      "destTokenAddress": "0x4908f0b9956a545b2a2cA41858AAE73AC0A9B3E6",
+      "isNft": false,
+      "isCollateral": false,
+      "underlyingTokenAddress": "0x539bde0d7dbd336b79148aa742883198bbf60342"
+    },
+    {
+      "method": "hyperlane",
+      "name": "GFLY",
+      "srcChainId": 42161,
+      "srcTokenAddress": "0x78a0ee80923e8a8a7d571d5f9af3f266a29b98cd",
+      "destChainId": 61166,
+      "destTokenAddress": "0x391006f22a8a9b49a34554ba1c39bb847485fc5a",
+      "isNft": false,
+      "isCollateral": false,
+      "underlyingTokenAddress": "0x78a0ee80923e8a8a7d571d5f9af3f266a29b98cd"
+    }
+  ]
+}

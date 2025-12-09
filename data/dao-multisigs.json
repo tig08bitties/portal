@@ -1,0 +1,36 @@
+[
+  {"name":"Treasury","network":"treasure","address":"0x33f497f8c412f5b28dfb4a402051359cbfb9406f","explorer":"https://treasurescan.io/address/0x33f497f8c412f5b28dfb4a402051359cbfb9406f"},
+  {"name":"Marketplace","network":"treasure","address":"0x36ec9cf670d220abbc59f866d0bd916166f22b1d","explorer":"https://treasurescan.io/address/0x36ec9cf670d220abbc59f866d0bd916166f22b1d"},
+  {"name":"Ecofund","network":"treasure","address":"0x3418e91949e17ac887c2daeaf7f0799ea9f38f22","explorer":"https://treasurescan.io/address/0x3418e91949e17ac887c2daeaf7f0799ea9f38f22"},
+  {"name":"Contributor Allocation","network":"treasure","address":"0x40143a989f7476e5eb526102671e070e292cd4c8","explorer":"https://treasurescan.io/address/0x40143a989f7476e5eb526102671e070e292cd4c8"},
+  {"name":"Liquidity","network":"treasure","address":"0x519583a364c0f4988506be990e57d0d7fbeacecc","explorer":"https://treasurescan.io/address/0x519583a364c0f4988506be990e57d0d7fbeacecc"},
+  {"name":"Magicswap","network":"treasure","address":"0xa65d67513328445b4a4d2f498624483c2601dda4","explorer":"https://treasurescan.io/address/0xa65d67513328445b4a4d2f498624483c2601dda4"},
+  {"name":"Mage","network":"treasure","address":"0x1e5f507d57afd7e2a123db9b1f8561705a8aaf53","explorer":"https://treasurescan.io/address/0x1e5f507d57afd7e2a123db9b1f8561705a8aaf53"},
+  {"name":"Operations","network":"treasure","address":"0xaa970694d1579689370de29e34d9e9eee1d3141a","explorer":"https://treasurescan.io/address/0xaa970694d1579689370de29e34d9e9eee1d3141a"},
+  {"name":"Community Grants","network":"treasure","address":"0x6dc5e50d199d8341250faca1ea66fc5ecd9ca34f","explorer":"https://treasurescan.io/address/0x6dc5e50d199d8341250faca1ea66fc5ecd9ca34f"},
+  {"name":"DA Staking","network":"treasure","address":"0x74fe6b821abc46c208d374a384ff7bcde5fc6f69","explorer":"https://treasurescan.io/address/0x74fe6b821abc46c208d374a384ff7bcde5fc6f69"},
+
+  {"name":"Treasury","network":"eth","address":"0xEc834bD1F492a8Bd5aa71023550C44D4fB14632A","explorer":"https://etherscan.io/address/0xEc834bD1F492a8Bd5aa71023550C44D4fB14632A"},
+  {"name":"Marketplace","network":"eth","address":"0xb2F011FD7f663C37B2936e3Bd921d3ACcB90B416","explorer":"https://etherscan.io/address/0xb2F011FD7f663C37B2936e3Bd921d3ACcB90B416"},
+  {"name":"Operations","network":"eth","address":"0x4ef220fC6d1C8951AaB7b804b5b5EED21D7A5150","explorer":"https://etherscan.io/address/0x4ef220fC6d1C8951AaB7b804b5b5EED21D7A5150"},
+
+  {"name":"Treasury","network":"arb1","address":"0x0eB5B03c0303f2F47cD81d7BE4275AF8Ed347576","explorer":"https://arbiscan.io/address/0x0eB5B03c0303f2F47cD81d7BE4275AF8Ed347576"},
+  {"name":"Marketplace","network":"arb1","address":"0xDb6Ab450178bAbCf0e467c1F3B436050d907E233","explorer":"https://arbiscan.io/address/0xDb6Ab450178bAbCf0e467c1F3B436050d907E233"},
+  {"name":"Ecofund","network":"arb1","address":"0x482729215AAF99B3199E41125865821ed5A4978a","explorer":"https://arbiscan.io/address/0x482729215AAF99B3199E41125865821ed5A4978a"},
+  {"name":"Contributor Allocation","network":"arb1","address":"0x4D3aAA252850EE7C82b299CB5778925BBE92f1fC","explorer":"https://arbiscan.io/address/0x4D3aAA252850EE7C82b299CB5778925BBE92f1fC"},
+  {"name":"Bridgeworld / Mining","network":"arb1","address":"0x81FA605235E4c32d8b440eEBE43D82e9E083166b","explorer":"https://arbiscan.io/address/0x81FA605235E4c32d8b440eEBE43D82e9E083166b"},
+  {"name":"Liquidity","network":"arb1","address":"0x64bFB08217B30b70f287a1B7f0670BDD49F8A13f","explorer":"https://arbiscan.io/address/0x64bFB08217B30b70f287a1B7f0670BDD49F8A13f"},
+  {"name":"Developer","network":"arb1","address":"0xE8409cd2aBae06871D166E808D75aDdb0537033A","explorer":"https://arbiscan.io/address/0xE8409cd2aBae06871D166E808D75aDdb0537033A"},
+  {"name":"Operations","network":"arb1","address":"0x7700D22D373Bb433B56705914D114144e8caDad3","explorer":"https://arbiscan.io/address/0x7700D22D373Bb433B56705914D114144e8caDad3"},
+  {"name":"Community Grants","network":"arb1","address":"0x1054E9D9091dC55a1738F9c8Fc0c79E59E222804","explorer":"https://arbiscan.io/address/0x1054E9D9091dC55a1738F9c8Fc0c79E59E222804"},
+  {"name":"Community Gamification Fund","network":"arb1","address":"0x3Fe5d6AE3470b2De09eD062Ac78444E44Aa0cACe","explorer":"https://arbiscan.io/address/0x3Fe5d6AE3470b2De09eD062Ac78444E44Aa0cACe"},
+  {"name":"Community Ecosystem Fund","network":"arb1","address":"0x45236EB7C47a68aE63f62F7e38f7C2F864f2Ad14","explorer":"https://arbiscan.io/address/0x45236EB7C47a68aE63f62F7e38f7C2F864f2Ad14"},
+
+  {"name":"Smol Treasury","network":"arb1","address":"0x674295B530A1F69a4Bc217FFFB7E8BcDF9971678","explorer":"https://arbiscan.io/address/0x674295B530A1F69a4Bc217FFFB7E8BcDF9971678"},
+  {"name":"Smol Treasury","network":"treasure","address":"0xc1aeb0290d6287a8483f09ebe7f50b236b6e703c","explorer":"https://treasurescan.io/address/0xc1aeb0290d6287a8483f09ebe7f50b236b6e703c"},
+  {"name":"Smol Treasury","network":"eth","address":"0xE40bCD82E46C28dAaf135717D4B2F6966BCb4E3E","explorer":"https://etherscan.io/address/0xE40bCD82E46C28dAaf135717D4B2F6966BCb4E3E"},
+  {"name":"Smol Treasury","network":"solana","address":"5KHDfxogWAiiDc3FWQJjT2RC6m38dte9JPfnYjwfbJ5V","explorer":"https://solscan.io/account/5KHDfxogWAiiDc3FWQJjT2RC6m38dte9JPfnYjwfbJ5V"},
+  {"name":"Bridgeworld Treasury (Genesis)","network":"arb1","address":"0xf9E197Aa9fa7C3b27A1A1313CaD5851B55F2FD71","explorer":"https://arbiscan.io/address/0xf9E197Aa9fa7C3b27A1A1313CaD5851B55F2FD71"},
+  {"name":"Bridgeworld Treasury (2.0)","network":"eth","address":"0xC983AA839910e7fa206dbC9478d9e3bbDFb88515","explorer":"https://etherscan.io/address/0xC983AA839910e7fa206dbC9478d9e3bbDFb88515"},
+  {"name":"GBS Off-ramp","network":"eth","address":"0x8E40f9725ecfeAbFa13788b04b40CCCFD5d6d9C4","explorer":"https://etherscan.io/address/0x8E40f9725ecfeAbFa13788b04b40CCCFD5d6d9C4"}
+]

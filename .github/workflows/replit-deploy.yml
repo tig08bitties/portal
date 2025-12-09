@@ -1,0 +1,51 @@
+name: Deploy to Replit & Cloudflare
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Follow LORE Roadmap
+        run: npm run deploy:lore
+
+      - name: Deploy to Replit
+        if: success()
+        env:
+          REPLIT_API_TOKEN: ${{ secrets.REPLIT_API_TOKEN }}
+          REPLIT_REPL_ID: ${{ secrets.REPLIT_REPL_ID }}
+        run: npm run deploy:replit
+
+      - name: Deploy to Cloudflare
+        if: success()
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: bridgeworld-lol
+          directory: .next
+
+      - name: Portal Status
+        run: |
+          echo "✨ Deployment Complete!"
+          echo "🌐 Portal: https://bridgeworld.lol"
+          echo "📖 LORE: 'When the end finds its beginning, the portal opens.'"

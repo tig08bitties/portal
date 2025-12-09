@@ -1,0 +1,59 @@
+Transaction
+sebJYu7JTKtJiGzOQZ36inO1ky9LOgtEmVJi7l4nqAw
+Status
+Success
+Value
+0 AR
+From
+Ky1c1Kkt-jZ9sY1hvLF5nCf6WWdBhIU5Un_BMYh-t3c
+To
+-
+Fee
+0.0000694166 AR
+$0.00029363
+Timestamp
+Jun 27 2022 02:46:01 PM (GMT-5)
+Age
+> 3 years
+Height
+963,176
+Confirmations
+841,541
+Size
+4.6 KiB
+Tags
+Content-Type
+application/json
+App-Name
+MirrorXYZ
+Contributor
+0xBAe65c4bA62799F68817Cbb2bB353Da4572C23Ae
+Content-Digest
+awueV0bW4xoLdsYIh-ak38ARZ6Y9ob5rAZT3L6x4WjI
+Original-Content-Digest
+awueV0bW4xoLdsYIh-ak38ARZ6Y9ob5rAZT3L6x4WjI
+===========================================
+
+{
+  "content": {
+    "body": "The MAGIC farm is ending! The Treasure ecosystem will now officially be transitioning to Arbitrum in October.\n\nHere is a quick guide on everything you need to make the transition with us:\n\n1. Tomorrow (10/7), we will create a staking pool on Treasure.lol for MAGIC that will migrate you to Arbitrum when v1 goes live. You cannot withdraw after staking. (Your tokens will effectively be burnt, and you will be credited for this amount on Arbitrum.) \\*You will still need to claim your tokens on Arbitrum and deposit them into the v1 mine to continue earning MAGIC.\\* Read [here](https://medium.com/@TreasureNFT/treasure-v1-game-theory-48d6e483ec75) to catch up on MAGIC staking and why it’s the crux of the project moving forward.\n2. If you stake 10,000 MAGIC in the staking pool tomorrow and own a treasure NFT, you will automatically receive a common legion claimable on Arbitrum.\n3. Tomorrow we will also release a staking pool for unfractionalized treasures. You can deposit your cards into this pool and be credited with treasure fractions on the other side when v1 goes live.\n4. Legion rewards will be claimable at the very beginning of v1.\n5. Leave your treasure fractions in the staking pools on Treasure.lol, and we will migrate you over. The same thing: your old NFTs will be burnt, and you will be able to claim the new upgraded cards.\n6. If you staked n, AGLD, or Loot, you can withdraw now and still receive your special rewards (but you must deposit 10K MAGIC into the Arbitrum migration pool!) These rewards are:\n\n* For n holders: a special legion called the Numeraire\n* For Loot and AGLD: an airdrop of treasures. Previously, the team pledged to give away the founder’s reserve of treasures. We’re making good on this. Loot holders will receive 25% of the founder’s share (2.5% of the total supply of treasures). AGLD holders will receive the same deal. \\*\\*PLEASE NOTE: If there is a low turnout among these groups for the transition, we will not be distributing the full amount. We are targeting each user to receive +/- 1 standard deviation of the median treasure holdings per user at the time of the airdrop so not to undermine the existing Treasure community. If we do not distribute the full amount, we will document as such and earmark the rest for future runway for the team.\n\nTo recap quickly, here’s a flow chart to break it down:\n\n![](https://images.mirror-media.xyz/publication-images/QsffAtlXP_-KVRYLFt7IE.png?height=1082&width=1102)\n\nWe appreciate our community for getting us this far. A fair launch, free project is really hard to pull off, especially in terms of keeping the core contributors motivated to keep going.\n\nThe community kept this project alive. We not only received donations from community members. We’ve had people from the community volunteer countless hours to help us execute this. This list includes artists, comms, UI, Solidity devs, graphic designers, and more. Everything about Treasure — from the website and the logo to the art on the new cards we are releasing— were created by community members who DM’ed us their work and wanted to participate. We were seriously humbled by this and so grateful.\n\nThese special rewards were meant as thank you’s to the community who have gotten us this far.\n\nOh, and there were a couple other special rewards promised along the way. We plan to distribute those to staked MAGIC holders on Arbitrum. The adventures start very soon…\n\n![????](https://images.mirror-media.xyz/publication-images/h2wdwiHNPq3WZSaY14L1_.png?height=1280&width=1280)\n\n",
+    "timestamp": 1656358866,
+    "title": "Transition to Arbitrum: Beginner’s Guide to Becoming a Master Bridgooooor"
+  },
+  "digest": "awueV0bW4xoLdsYIh-ak38ARZ6Y9ob5rAZT3L6x4WjI",
+  "authorship": {
+    "contributor": "0xBAe65c4bA62799F68817Cbb2bB353Da4572C23Ae",
+    "signingKey": "{\"crv\":\"P-256\",\"ext\":true,\"key_ops\":[\"verify\"],\"kty\":\"EC\",\"x\":\"rGS2lcRcOk4cemfdG_o_vFJLSzNzq6xMRdWrB66x0ds\",\"y\":\"6dzbknN0hjUxpwBbZmuCcdIP9OViAlY3TWJxICdszVI\"}",
+    "signature": "sfNyRex_bSiWHT5lckg5-XbGnmMTG9O9s2tsxJHXG75t2B-ijfhbtdUAYC5wRcihrVvUytkpVEU_9YOxigp1-g",
+    "signingKeySignature": "0x449ebb4db54cdec290d0f7a0af30f42147d76490eda441dd30a16843dc93d7931a63887ca8d0a4f0f452436c998d14744bdbcfaa99f907a8bc5ffde1a9739e0100",
+    "signingKeyMessage": "I authorize publishing on mirror.xyz from this device using:\n{\"crv\":\"P-256\",\"ext\":true,\"key_ops\":[\"verify\"],\"kty\":\"EC\",\"x\":\"rGS2lcRcOk4cemfdG_o_vFJLSzNzq6xMRdWrB66x0ds\",\"y\":\"6dzbknN0hjUxpwBbZmuCcdIP9OViAlY3TWJxICdszVI\"}",
+    "algorithm": {
+      "name": "ECDSA",
+      "hash": "SHA-256"
+    }
+  },
+  "nft": {},
+  "version": "04-19-2022",
+  "originalDigest": "awueV0bW4xoLdsYIh-ak38ARZ6Y9ob5rAZT3L6x4WjI"
+}
+

@@ -1,0 +1,17 @@
+language = "nodejs"
+run = "npm run dev"
+
+[deploy]
+run = ["sh", "-c", "npm run build && npm run start"]
+
+[env]
+NODE_ENV=production
+NEXT_PUBLIC_APP_URL=https://bridgeworld.lol
+
+[github]
+autoSync = true
+autoDeploy = true
+
+[deploy.healthcheck]
+path = "/"
+interval = 30

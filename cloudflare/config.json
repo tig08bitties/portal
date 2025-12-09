@@ -1,0 +1,40 @@
+{
+  "teamName": "tig08bitties.cloudflareaccess.com",
+  "accessURL": "https://tig08bitties.cloudflareaccess.com",
+  "domains": {
+    "bridgeworld": "bridgeworld.lol",
+    "theos": "theos.brave",
+    "theosUD": "ud.me/theos.brave"
+  },
+  "oracle": {
+    "address": "0xfa05997C66437dCCAe860af334b30d69E0De24DC",
+    "network": "Arbitrum Mainnet",
+    "explorer": "https://arbiscan.io/address/0xfa05997C66437dCCAe860af334b30d69E0De24DC"
+  },
+  "deployer": {
+    "address": "0x3BBa654A3816A228284E3e0401Cff4EA6dFc5cea",
+    "explorer": "https://arbiscan.io/address/0x3BBa654A3816A228284E3e0401Cff4EA6dFc5cea"
+  },
+  "guardians": {
+    "total": 22,
+    "registered": 21,
+    "active": true
+  },
+  "applications": {
+    "oracle": {
+      "url": "https://oracle.bridgeworld.lol",
+      "protected": true,
+      "auth": "email"
+    },
+    "monitoring": {
+      "url": "https://monitor.bridgeworld.lol",
+      "protected": true,
+      "auth": "email"
+    },
+    "api": {
+      "url": "https://api.bridgeworld.lol",
+      "protected": true,
+      "auth": "email"
+    }
+  }
+}
